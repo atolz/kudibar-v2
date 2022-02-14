@@ -1,0 +1,28 @@
+.back {
+  // @media (max-width: 768px) {
+  //   display: none;
+  // }
+  &__btn {
+    width: 37px;
+    height: 37px;
+    border-radius: 50000px;
+    border: none;
+    background-color: $kudi-light;
+
+    i {
+      color: white;
+    }
+  }
+
+  &__text {
+    margin-left: 16px;
+    font-family: Cairo;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 32px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: var($kudi-dark);
+  }
+}

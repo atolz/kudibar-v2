@@ -1,0 +1,37 @@
+.cubes{
+   text-align: center;
+
+   .cube{
+      max-height: 235px;
+      max-width: 235px;
+      width: 100%;
+      height: 100%;
+      padding: $px35 $px30;
+      border: $px2 solid $kudi-mid;
+      border-radius: $px10;
+      display: inline-block;
+      margin-right: $px35;
+      margin-bottom: $px35;
+
+      h4 {
+         margin-top: 15px;
+      }
+
+      &.light{
+         color: $kudi-mid;
+
+         .icon{
+            svg path{ fill: $kudi-mid;}
+         }
+      }
+   }
+}
+
+
+@media (max-width: $sm) {
+   .cubes{
+      .cube{
+         max-width: none;
+      }
+   }
+}

@@ -1,0 +1,119 @@
+.kudi-h3 {
+  font-family: Cairo;
+  font-size: 31px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 31px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: $primary;
+  margin-bottom: 16px;
+}
+
+.kudi-h4 {
+  color: #023e4f;
+  font-family: Cairo;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 41px;
+  letter-spacing: 0em;
+  text-align: left;
+  @media (max-width: $sm) {
+    font-size: 18px;
+    line-height: 24px;
+  }
+}
+
+.kudi-h5 {
+  color: #023e4f;
+  font-family: Cairo;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.kudi-h6 {
+  color: #023e4f;
+  font-family: Cairo;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 34px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.kudi-h4-popup {
+  font-size: 24px !important;
+  font-family: Cairo;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: $primary;
+  margin-bottom: 0px !important;
+}
+
+.body-default {
+  color: #617b83;
+  font-family: Roboto;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 26px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.kudi-body-1 {
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #236cb1;
+  margin-bottom: 24px;
+}
+
+.font-cario {
+  font-family: Cairo !important;
+}
+
+//font weight utilities
+
+.fw-400 {
+  font-weight: 400 !important;
+}
+.fw-500 {
+  font-weight: 500 !important;
+}
+.fw-600 {
+  font-weight: 600 !important;
+}
+.fw-700 {
+  font-weight: 700 !important;
+}
+
+//color utilities
+.kudi-text-green {
+  color: #219653 !important;
+}
+
+.kudi-text-default {
+  color: #023e4f !important;
+}
+
+.kudi-text-red {
+  color: #c11e1e;
+}
+
+.kudi-text-yellow {
+  color: #f08800 !important;
+}

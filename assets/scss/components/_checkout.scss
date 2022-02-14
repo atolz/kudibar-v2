@@ -1,0 +1,103 @@
+.checkout{
+
+   .title-box{
+      background: $kudi-dark;
+      color: #fff;
+      padding: $px30;
+      margin-bottom: $px20;
+
+      .title{
+         font-size: 30px;
+         margin: 0;
+         line-height: 1.5;
+      }
+   }
+
+   .ticket-box{
+      padding: $px12 0;
+      border-bottom: 1px solid #ddd;
+
+      .title{
+        margin: 0;
+      }
+
+      .field{
+         border: 2px solid #b8b8b8;
+         padding: 3px;
+         text-align: center;
+         border-radius: 10px;
+         margin-left: 10px;
+         margin-bottom: 0;
+
+         &:focus{
+            outline: none;
+         }
+      }
+
+      &:last-child{
+        border: none;
+      }
+   }
+
+   .co-down-box{
+      background-color: #fff;
+      position: absolute;
+      z-index: 100;
+      bottom: $px30;
+
+      .gateways{
+        margin-top: $px10;
+      }
+
+      .kbtn{
+         text-align: center;
+
+         &.disabled{
+            color: #b8b8b8;
+            border: 1px solid #b8b8b8;
+            cursor: not-allowed;
+
+            &:hover{
+               background: none;
+            }
+         }
+      }
+   }
+
+   .no-content{
+      padding-top: 40%;
+      text-align: center;
+   }
+
+   .auth-box{
+      margin: 0 auto;
+      max-width: 500px;
+      box-shadow: 0 0 black;
+      border: none;
+
+      .act--btn .tab{
+         width: 55px;
+      }
+   }
+}
+
+
+
+@media (max-width: $sm) {
+  .checkout{
+
+    .title-box{
+      padding: 12px 20px;
+
+      .title{
+        font-size: 130%;
+        margin: 0;
+        line-height: 1.5;
+      }
+    }
+
+    .co-down-box{
+      position: fixed;
+    }
+  }
+}

@@ -1,0 +1,249 @@
+.upload-action{
+   overflow: hidden;
+   cursor: pointer;
+
+   .image{
+      background-color: rgba($color: $grey-e4, $alpha: .7);
+      padding: $px50;
+      text-align: center;
+      border-radius: $px10;
+
+      .icon{
+         font-size: $px50;
+         color: $grey-ba;
+      }
+   }
+
+   .thumb{
+      background: #111;
+      background-size: cover;
+      border-radius: $px10;
+      height: 350px;
+
+      &.smalls{
+         height: 120px;
+      }
+
+      img{
+         width: 100%;
+         border-radius: $px10;
+      }
+   }
+}
+
+.media-box{
+   .files{
+      overflow: scroll;
+      height: 100vh;
+   }
+
+   .image-box {
+      height: 150px;
+      background: #ddd;
+      background-size: cover;
+      border-radius: $px5;
+      cursor: pointer;
+      position: relative;
+
+      .insert--img{
+         display: none;
+      }
+
+      &:hover{
+         .insert--img{
+            display: block;
+         }
+      }
+   }
+
+   .hanger{
+      position: absolute;
+      background: #d7e1db;
+      padding: 20px;
+      width: 30%;
+      height: 100%;
+      top: 0;
+      right: 0;
+   }
+
+   .cover {
+      max-height: 75%;
+      overflow: hidden;
+
+      img{
+         width: 100%;
+      }
+   }
+}
+
+.media-small-box{
+   .thumb{
+      height: 120px;
+      background-size: cover;
+   }
+}
+
+.video-action{
+   border-radius: 10px;
+   overflow: hidden;
+}
+
+.tabs{
+   .upload--btn{
+      margin-right: $px15;
+      display: inline-block;
+      cursor: pointer;
+
+      .btn-round{
+         border-radius: $px30;
+         font-size: $px14;
+
+         .icon{
+            svg{ fill: white}
+         }
+      }
+   }
+}
+
+.upload--area{
+   margin-bottom: 30px;
+   border: 2px dashed #cdcdcd;
+   border-radius: 10px;
+
+   label{
+      display: block;
+      padding: 50px;
+      text-align: center;
+      cursor: pointer;
+
+      input{
+         display: none;
+      }
+   }
+
+   .stats{
+      span{
+         font-size: 30px;
+         color: #607d8b;
+      }
+   }
+}
+
+.upload-box{
+   .progress--bar {
+		height: 20px;
+		background: #cdcdcd;
+		border-radius: 30px;
+		overflow: hidden;
+		position: relative;
+      margin-top: 15px;
+
+      .progress{
+         height: $px20;
+      }
+
+		.meter {
+			position: absolute;
+			display: inline-block;
+			background: #33a6c6;
+			width: 0%;
+			border-radius: 30px;
+			height: 20px;
+			top: 0;
+			left: 0;
+		}
+
+		.good{
+			background: #61c661;
+		}
+
+		.almost{
+			background: #0f637b;
+		}
+
+		.val{
+			font-size: 14px;
+			position: absolute;
+			z-index: 2;
+			display: block;
+			padding: 0 7px;
+			color: #111;
+		}
+   }
+
+   .image-box {
+      height: 150px;
+      background: #ddd;
+      background-size: cover;
+      border-radius: $px5;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+
+      img{
+         width: 100%;
+      }
+
+
+   }
+
+	.success--stat {
+	   padding: 2px 10px;
+	   background: #3aa113;
+	   border-radius: 20px;
+	   margin-top: 10px;
+	   color: #fff;
+	   font-weight: bold;
+	   font-size: 14px;
+	}
+
+	.failed--stat {
+	   padding: 5px 10px;
+	   background: #e74a4a;
+	   border-radius: 20px;
+	   margin-top: 10px;
+	   color: #fff;
+	   font-weight: bold;
+	}
+
+
+}
+
+.insert--img{
+   position: absolute;
+   top: 0;
+   bottom: 0;
+   width: 100%;
+   background: rgba(0,0,0,.3);
+   right: 0;
+   left: 0;
+   text-align: center;
+   padding: 27%;
+   color: #fff;
+   display: block;
+   border-radius: 5px;
+   cursor: pointer;
+
+   &.error{
+      cursor: text;
+      border-left: 8px red solid
+   }
+
+   &.success{
+      border-left: 8px #009688 solid
+   }
+
+   .btn{
+      font-size: $px14;
+      padding: 0px $px10;
+   }
+}
+
+.tab-box{
+   display: none;
+   padding: 20px;
+
+   &.active{
+      display: block;
+   }
+}

@@ -1,0 +1,474 @@
+// Live area
+.live-area {
+   .fh{
+      height: 92vh;
+      max-height: 100%;
+   }
+
+   .util-float-btns{
+      position: absolute;
+      z-index: 1;
+      padding: 20px;
+      width: 100%;
+
+      .logo{
+        width: 220px;
+        // opacity: 0.3;
+        position: absolute;
+
+        img{
+          width: 100%;
+          // filter: grayscale(100%);
+        }
+      }
+
+      .mv-btn{
+        color: azure;
+        background-color: rgba(0, 0, 0, 0.2);
+        border: 1px solid rgba(221, 221, 221, 0.418);
+        padding: $px10;
+        width: 45px;
+        display: inline-block;
+        text-align: center;
+        border-radius: 20px;
+        opacity: 0.8;
+
+        &:hover{
+          opacity: 0.5;
+        }
+      }
+   }
+
+   .g-blk{
+      background: $black;
+   }
+
+   .vbox {
+      width: 100%;
+      height: 100vh;
+      position: relative;
+      background: $black;
+      // border: 1px solid #fff;
+
+      &.v-height-50{
+         height: 50vh;
+      }
+      &.v-height-30{
+         height: 33.3vh;
+      }
+
+      video {
+         // max-width: 300px;
+         // border: 1px solid #ddd;
+         width: 100%;
+         height: 100%;
+         object-fit: cover;
+
+         transform: rotateY(180deg);
+         -webkit-transform: rotateY(180deg);
+         -moz-transform: rotateY(180deg);
+      }
+
+      .d-box {
+         position: absolute;
+         bottom: 0;
+         padding: 15px;
+         width: 100%;
+         color: #ddd;
+      }
+   }
+
+  .analytics {
+    background-color: rgba($color: $kudi-light, $alpha: 0.09);
+    background-color: $kudi-mid;
+    color: white;
+    padding: $px30;
+
+    .mnav{
+       .trigger{
+          color: white;
+       }
+    }
+  }
+
+  .ktabs {
+    padding: $px10 $px30;
+    background-color: $gray-light;
+    border-bottom: $px1 solid $grey-cb;
+    position: relative;
+
+    .tab {
+      font-size: $px15;
+      color: $kudi-dark;
+      cursor: pointer;
+
+      &:hover {
+        &::after {
+          content: "";
+          height: 3px;
+          width: 98%;
+          background-color: $kudi-dark;
+          display: block;
+          border-radius: $px10;
+          margin: 0 auto;
+          margin-top: $px5;
+          position: absolute;
+          bottom: -$px10;
+        }
+      }
+
+      &.active {
+        color: $kudi-dark;
+        font-weight: 600;
+
+        &::after {
+          content: "";
+          height: 3px;
+          width: 98%;
+          background-color: $kudi-dark;
+          display: block;
+          border-radius: $px10;
+          margin: 0 auto;
+          margin-top: $px5;
+          position: absolute;
+          bottom: -$px10;
+        }
+      }
+    }
+  }
+}
+
+// People list
+.people-list {
+  background-color: rgba(41, 120, 152, 0.09);
+  //   background-color: $gray-light;
+  height: 100%;
+  max-height: 70vh;
+  overflow-y: auto;
+
+  &::-webkit-scrollbar {
+    width: $px5;
+  }
+
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: rgba($color: $grey-black, $alpha: 0.5);
+    outline: 1px solid slategrey;
+  }
+
+  // Subscribers
+  .subs {
+    padding: $px10 $px30;
+    list-style: none;
+    border-bottom: 1px solid $grey-e4;
+    padding-top: $px20;
+
+    .pp-icon {
+      background-color: $grey;
+      border-radius: $px30;
+      width: $px50;
+      height: $px50;
+      display: inline-block;
+      position: relative;
+
+      img {
+        border-radius: $px50;
+      }
+
+      .online {
+        border-radius: $px20;
+        height: $px10;
+        width: $px10;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+
+        &.y {
+          background-color: $green;
+        }
+        &.n {
+          background-color: $grey-black;
+        }
+      }
+    }
+
+    .title {
+      margin-top: 10px;
+      display: inline-block;
+    }
+  }
+
+  // Chat
+  .chat {
+    position: relative;
+    padding-top: $px20;
+
+    .messages {
+      padding: $px10 $px30;
+      height: calc(100% - 100px);
+      padding-bottom: $px35;
+
+      .message {
+        width: 85%;
+        position: relative;
+
+        .pp {
+          background-color: $grey;
+          border-radius: $px50;
+          width: $px35;
+          height: $px35;
+          display: inline-block;
+          position: relative;
+
+          img {
+            border-radius: $px50;
+          }
+        }
+
+        .bubble {
+          padding: $px10;
+          background: $white;
+          border-radius: $px10;
+          // box-shadow: 0px 0px 4px rgba($color: $black, $alpha: .12);
+          position: relative;
+          margin-bottom: $px20;
+          border: 1px solid rgba($color: $kudi-light, $alpha: 0.12);
+          font-size: $px14;
+
+          &.left-arrow::after {
+            content: "";
+            top: $px10;
+            left: -$px7;
+            width: 0;
+            height: 0;
+            position: absolute;
+            border-top: $px7 solid transparent;
+            border-bottom: $px7 solid transparent;
+            border-right: $px7 solid $white;
+          }
+
+          &.right-arrow::after {
+            content: "";
+            top: $px10;
+            right: -$px7;
+            width: 0;
+            height: 0;
+            position: absolute;
+            border-top: $px7 solid transparent;
+            border-bottom: $px7 solid transparent;
+            border-left: $px7 solid $white;
+          }
+        }
+
+        &.own {
+          left: 15%;
+        }
+      }
+    }
+    .area {
+      padding: $px10 $px30;
+      border-top: 2px solid $grey-cb;
+      position: fixed;
+      bottom: 0;
+      max-width: 25vw;
+      width: 100%;
+      background-color: $white;
+
+      .ta {
+        width: 100%;
+        font-style: italic;
+        border: none;
+        outline: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+      .cb {
+        padding: $px5 $px10;
+        cursor: pointer;
+        font-size: $px20;
+      }
+    }
+  }
+
+  // Question & answer
+  .qa {
+    position: relative;
+    padding-top: $px20;
+
+    .questions {
+      .qa-box {
+        padding: $px20;
+        background: $white;
+        font-size: $px14;
+        margin-bottom: $px7;
+        border-bottom: 1px solid $grey-e4;
+
+        a {
+          color: $kudi-dark;
+          font-weight: 600;
+          font-size: $px10;
+        }
+
+        .pp {
+          background-color: $grey;
+          border-radius: $px50;
+          width: $px35;
+          height: $px35;
+          display: inline-block;
+          position: relative;
+
+          img {
+            border-radius: $px50;
+          }
+        }
+      }
+    }
+
+    .area {
+      padding: $px10 $px30;
+      border-top: 2px solid $grey-cb;
+      position: fixed;
+      bottom: 0;
+      max-width: 25vw;
+      width: 100%;
+      background-color: $white;
+
+      .ta {
+        width: 100%;
+        font-style: italic;
+        border: none;
+        outline: none;
+
+        &:focus {
+          outline: none;
+        }
+      }
+      .cb {
+        padding: $px5 $px10;
+        cursor: pointer;
+        font-size: $px20;
+      }
+    }
+  }
+
+  // TOpics
+  .topics {
+    padding: $px20;
+    position: relative;
+
+    &::after {
+      content: "";
+      height: 100%;
+      display: block;
+      width: 2px;
+      background: $grey-cb;
+      position: absolute;
+      left: 29px;
+      top: 0;
+    }
+
+    .topic {
+      padding: $px10 0;
+
+      &:hover {
+        color: $kudi-mid;
+        cursor: pointer;
+
+        .circle {
+          border-color: $kudi-mid;
+        }
+      }
+
+      &.active {
+        color: $kudi-mid;
+
+        .circle {
+          border-color: $kudi-mid;
+
+          .inner {
+            background-color: $kudi-mid;
+          }
+        }
+      }
+
+      .circle {
+        display: inline-block;
+        width: 20px;
+        height: 20px;
+        border: 2px solid $grey-ba;
+        border-radius: 30px;
+        position: relative;
+        top: 3px;
+        margin-right: 10px;
+        background-color: white;
+        z-index: 11;
+
+        .inner {
+          background-color: white;
+          display: block;
+          width: 10px;
+          height: 9px;
+          border-radius: 30px;
+          margin-left: 3px;
+          margin-top: 3px;
+        }
+      }
+    }
+  }
+}
+
+
+.before-start {
+  padding-top: 10%;
+
+  .vbox-t{
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 2px 6px 2px rgba(60,64,67,0.149);
+    background-color: #fff;
+    border-radius: .5rem;
+    font-size: 1.1em;
+    opacity: 1;
+    padding: .5em;
+    text-align: center;
+    transition: box-shadow .03s linear,opacity .25s linear;
+    z-index: 1;
+    margin-bottom: 20px;
+    position: relative;
+
+    video{
+      width: 100%;
+      height: 100%;
+      background: $black;
+      object-fit: cover;
+
+      transform: rotateY(180deg);
+      -webkit-transform: rotateY(180deg);
+      -moz-transform: rotateY(180deg);
+      border-radius: 4px;
+    }
+
+    .vtxt{
+      color: #fff;
+      position: absolute;
+      bottom: 30px;
+      left: 15px;
+
+      i{
+        color: red;
+      }
+    }
+  }
+
+  .mv-btn{
+    padding: $px10;
+    border: 1px solid #ddd;
+    width: 45px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 20px;
+  }
+}

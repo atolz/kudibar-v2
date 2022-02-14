@@ -1,0 +1,50 @@
+// External
+// @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,700;1,300&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@400;900&display=swap");
+
+// Vendors
+// @import "../css/bootstrap.css";
+// @import "./font-awesome.css";
+
+// Vendor
+@import "vendor/override";
+
+@import "@/node_modules/bootstrap/scss/bootstrap";
+
+// Base styles
+@import "base/variables";
+@import "base/base";
+@import "base/typography";
+
+// Components
+@import "components/alert";
+@import "components/form";
+@import "components/input";
+@import "components/title";
+@import "components/button";
+@import "components/nav";
+@import "components/file";
+@import "components/animation";
+@import "components/live";
+@import "components/modal";
+@import "components/utility";
+@import "components/cube";
+@import "components/card";
+@import "components/one-slide";
+@import "components/widgets";
+@import "components/auth";
+@import "components/chips";
+@import "components/rate";
+@import "components/table";
+@import "components/message";
+@import "components/checkout";
+@import "components/event";
+@import "components/account";
+
+@import "pages/footer";
+@import "pages/events/slug";
+
+// @import 'frappe-charts/src/css/charts.scss';
+// @import '~animate.css';

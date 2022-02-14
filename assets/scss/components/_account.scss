@@ -1,0 +1,122 @@
+.account{
+   .profile {
+      a {
+         text-decoration: none;
+      }
+
+      &-url {
+         color: $primary;
+         font-size: 11px;
+         font-weight: 300;
+      }
+
+      &-title {
+         font-size: 20px;
+         font-weight: $bold;
+      }
+      &-text {
+         h6 {
+            color: $secondary;
+         }
+         p {
+            color: $primary;
+            font-weight: 300;
+            font-family: "Segoe UI";
+            font-size: 12px;
+            line-height: 16px;
+         }
+      }
+      .card {
+         box-shadow: 0 3px 21px 0 #00000012;
+      }
+      .bio {
+         &.card {
+            max-width: 374px;
+         }
+      }
+      .stats {
+         &.card {
+            max-width: 703px;
+         }
+         h4 {
+            font-size: 24px;
+         }
+         a {
+            font-size: 14px;
+            font-weight: $bold;
+         }
+         .view-more {
+            color: #4f4f4f;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: underline;
+         }
+      }
+
+      .mb {
+         margin-bottom: 35px;
+      }
+      .mt {
+         margin-top: 35px;
+      }
+
+      .flwrs {
+         color: $primary;
+      }
+      .flwng {
+         color: #2f80ed;
+      }
+      .crtd {
+         color: #9b51e0;
+      }
+      .atnd {
+         color: #eb5757;
+      }
+      .prog {
+         span {
+            color: $primary;
+            font-family: $secondary-font;
+            font-size: 13px;
+            font-weight: 500;
+            line-height: 1rem;
+         }
+      }
+   }
+
+   .avatar-big{
+      text-align: center;
+      font-size: 30px;
+      color: #fff;
+      padding-top: 20px;
+   }
+
+   .cta {
+   &.card {
+         max-width: 472px;
+
+         p {
+            font-size: 10px;
+         }
+      }
+   }
+}
+
+@media (min-width: $sm) {
+   .profile-pic{
+      width: 100px;
+      height: 100px;
+
+      &-sm{
+         width: 70px;
+         height: 70px;
+      }
+
+      .pic-txt{
+         display: block;
+         text-align: center;
+         padding-top: 11px;
+         font-size: 26px;
+         color: #fff;
+      }
+   }
+}

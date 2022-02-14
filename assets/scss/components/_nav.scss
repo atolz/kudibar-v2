@@ -1,0 +1,559 @@
+.main-header {
+   .nav-link {
+      color: $kudi-dark;
+      font-size: 100%;
+      font-family: "Inter";
+
+      &:hover {
+         color: $kudi-light;
+      }
+
+      &.active {
+         font-weight: 600;
+         color: $kudi-dark;
+      }
+   }
+
+   .logo {
+      width: 100px;
+   }
+}
+
+.main-nav {
+   padding: $px15 0;
+   border-bottom: 1px solid $grey;
+
+   &::after {
+      content: "";
+      clear: both;
+      display: block;
+   }
+
+   .logo {
+      max-width: 100%;
+      width: 200px;
+      display: inline-block;
+      margin-top: 6px;
+      margin-right: $px20;
+   }
+
+   .nav-list {
+      padding: 0;
+      margin: 0;
+      width: auto;
+
+      .list {
+         list-style: none;
+         display: inline;
+         margin-right: 1.2rem;
+         vertical-align: middle;
+         position: relative;
+
+         &:last-child {
+            margin-right: 0;
+         }
+
+         a {
+            color: $kudi-dark;
+            font-size: 100%;
+
+            &:hover {
+               color: $kudi-light;
+            }
+            &.active {
+               font-weight: 600;
+               color: $kudi-dark;
+            }
+         }
+
+         .gs {
+            color: white;
+         }
+
+         &.tp {
+            position: relative;
+            top: 5px;
+         }
+
+         .drop {
+            display: none;
+            position: absolute;
+            z-index: 10;
+            list-style: none;
+            padding: 0;
+            left: 0;
+            background: #fff;
+            top: 52px;
+            width: 100%;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+            border-radius: 10px;
+
+            li {
+               a {
+                  padding: 10px 15px;
+                  color: #484848;
+                  font-size: 15px;
+                  display: block;
+
+                  &:hover {
+                     opacity: 0.8;
+                     background-color: #dddddd4a;
+                  }
+               }
+
+               &:last-child {
+                  border-top: 1px solid #dddddd91;
+
+                  a {
+                     color: #f00;
+                  }
+               }
+            }
+
+            &.active {
+               display: block;
+            }
+         }
+      }
+   }
+
+   .avatar {
+      background: #fff;
+      width: 3rem;
+      height: 3rem;
+      display: inline-block;
+      border-radius: 50px;
+      padding: 3px;
+      border: 2px solid #30afff;
+
+      a {
+         width: 100%;
+         height: 100%;
+         display: block;
+         background: #ddd;
+         border-radius: 50px;
+      }
+
+      img {
+         width: 100%;
+         border-radius: 50px;
+      }
+   }
+
+   .notify {
+      position: relative;
+
+      .beep {
+         width: 7px;
+         height: 7px;
+         position: absolute;
+         border-radius: 10px;
+         background-color: #ff5722;
+         top: -5px;
+         right: -7px;
+      }
+   }
+}
+
+.sub-nav {
+   padding: 0;
+   margin: 0;
+   width: auto;
+   margin-top: 1.5rem;
+
+   .nav {
+      padding-left: 0;
+   }
+
+   .list {
+      list-style: none;
+      display: inline;
+      margin-right: 1.5rem;
+      vertical-align: middle;
+
+      &::last-child {
+         margin-right: 0;
+      }
+
+      a {
+         color: $grey-ba;
+         text-decoration: none;
+         font-size: 1rem;
+
+         &.icon {
+            background: $kudi-dark;
+            color: $white;
+            display: inline-block;
+            padding: 0.6rem 0;
+            width: $px50;
+            height: $px50;
+            border-radius: 50px;
+            text-align: center;
+            margin-right: $m1-5;
+         }
+
+         &.active {
+            font-weight: 600;
+            color: $kudi-dark;
+         }
+      }
+   }
+}
+
+.native-nav {
+   // right: 0;
+   bottom: 0;
+   width: 100%;
+   z-index: 10000;
+   // position: fixed;
+   background-color: #fff;
+   border-top: 1px solid #ddd;
+   box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.15);
+
+   .inner {
+      padding: $px15 $px20;
+   }
+}
+
+.mobile-head {
+   position: fixed;
+   top: 0;
+   width: 100%;
+   background-color: #fff;
+   z-index: 10;
+   box-shadow: 0 -15px 40px rgba(0, 0, 0, 0.15);
+
+   .logo {
+      max-width: 160px;
+   }
+
+   .inner {
+      padding: $px15;
+   }
+}
+
+//
+.filter-nav {
+   li {
+      list-style: none;
+      margin-right: 8px;
+      padding: 0;
+
+      a {
+         color: $kudi-dark;
+         display: block;
+         text-decoration: none;
+         padding: 5px 10px;
+         font-size: 14px;
+
+         &:hover,
+         &.active {
+            border-bottom: 4px solid $kudi-dark;
+            // background: $kudi-light;
+            // border-radius: 20px;
+            // color: #fff;
+            // opacity: .8;
+         }
+      }
+   }
+}
+
+#menuToggle {
+   display: block;
+   position: relative;
+   margin-top: 0;
+   z-index: 1;
+
+   -webkit-user-select: none;
+   user-select: none;
+
+   a {
+      text-decoration: none;
+      color: #232323;
+
+      transition: color 0.3s ease;
+
+      &:hover {
+         color: $kudi-light;
+      }
+   }
+
+   input {
+      display: block;
+      width: 40px;
+      height: 32px;
+      position: absolute;
+      top: -7px;
+      left: -5px;
+
+      cursor: pointer;
+
+      opacity: 0; /* hide this */
+      z-index: 2; /* and place it over the hamburger */
+
+      -webkit-touch-callout: none;
+   }
+
+   span {
+      display: block;
+      width: 33px;
+      height: 4px;
+      margin-bottom: 5px;
+      position: relative;
+
+      background: #403f3f;
+      border-radius: 3px;
+
+      z-index: 1;
+
+      transform-origin: 4px 0;
+
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1),
+         background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease;
+
+      &:first-child {
+         transform-origin: 0% 0%;
+      }
+
+      &:nth-last-child(2) {
+         transform-origin: 0% 100%;
+      }
+   }
+
+   input:checked ~ span {
+      opacity: 1;
+      transform: rotate(45deg) translate(-2px, -1px);
+      background: #232323;
+   }
+
+   input:checked ~ span:nth-last-child(3) {
+      opacity: 0;
+      transform: rotate(0deg) scale(0.2, 0.2);
+   }
+
+   input:checked ~ span:nth-last-child(2) {
+      transform: rotate(-45deg) translate(0, -1px);
+   }
+}
+
+#menu {
+   top: 8px;
+   position: absolute;
+   width: 100vw;
+   height: 100vh;
+   margin-top: 30px;
+   padding: 50px;
+   padding-top: 125px;
+   border-top: 2px solid #cccccc69;
+   background: #fff;
+   list-style-type: none;
+   -webkit-font-smoothing: antialiased;
+   /* to stop flickering of text in safari */
+
+   transform-origin: 0% 0%;
+   transform: translate(100%, 0);
+
+   transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1);
+
+   li {
+      padding: 10px 0;
+      font-size: 22px;
+   }
+}
+
+/*
+* And let's slide it in from the left
+*/
+#menuToggle input:checked ~ ul {
+   // transform: none;
+   transform: translate(-85%, 0);
+}
+
+.dropdown-toggle::after{
+   display: none !important;
+}
+
+// Foooter nav
+.footer {
+   // padding: $px60 $px20;
+   border-top: 1px solid $grey-e4;
+   position: relative;
+   z-index: 100;
+   background: #fff;
+
+   .logo {
+      max-width: 220px;
+      margin-bottom: $px30;
+   }
+
+   .list {
+      margin-top: $px20;
+      padding: 0;
+
+      li {
+         list-style: none;
+         padding-bottom: $px5;
+      }
+      a {
+         font-size: $px14;
+         color: $kudi-mid;
+         font-weight: 400;
+      }
+   }
+
+   .social {
+      a {
+         display: inline-block;
+         padding-right: $px20;
+         color: $kudi-dark;
+         font-size: $px20;
+      }
+   }
+}
+
+@media (max-width: $md) {
+   .main-nav {
+      .nav-list {
+         .list {
+            margin-right: $px15;
+
+            &:last-child {
+               margin-right: 0;
+            }
+
+            &.tp {
+               top: 0;
+            }
+
+            .gs {
+               margin: 0;
+               font-size: $px12;
+            }
+
+            a {
+               font-size: $px14;
+            }
+         }
+      }
+   }
+
+   .filter-nav {
+      // width: 1000px;
+      overflow-x: auto;
+   }
+}
+
+@media (max-width: $sm) {
+   .mobile-nav {
+      margin: $px10 $px20;
+
+      .logo {
+         max-width: 100%;
+         width: 200px;
+         display: inline-block;
+         margin-top: 6px;
+         margin-right: $px20;
+      }
+
+      .nav {
+         font-size: $px30;
+         color: #111111;
+      }
+   }
+
+   .main-nav {
+      position: absolute;
+      background: #fff;
+      overflow: auto;
+      width: 100%;
+      z-index: 100;
+
+      .close {
+         display: block;
+         color: #000;
+         font-size: $px20;
+         margin-right: 20px;
+
+         i {
+            margin-left: 15px;
+            font-size: $px30;
+         }
+      }
+
+      .logo {
+         display: none;
+      }
+
+      .nav-list {
+         .list {
+            display: block;
+
+            .gs,
+            a {
+               font-size: $px30;
+               display: block;
+               padding: 15px;
+               background: none;
+               margin: 0;
+               color: #023e4f;
+
+               i {
+                  display: none;
+               }
+            }
+         }
+      }
+
+      .nav-left,
+      .nav-right {
+         clear: both;
+         width: 100%;
+         text-align: center;
+      }
+
+      &.active {
+         height: 100vh;
+      }
+   }
+
+   .sub-nav {
+      .kbtn {
+         margin: 0;
+         font-size: 12px;
+         padding: 5px 10px;
+         height: 30px;
+
+         .icon {
+            display: none;
+            margin-left: 0.5rem;
+         }
+      }
+
+      .list {
+         margin-right: 0.8rem;
+         font-size: 10px;
+
+         strong {
+            font-size: 12px;
+         }
+
+         a {
+            &.icon {
+               margin: 0;
+               width: 30px;
+               height: 30px;
+               font-size: 0.7rem;
+               padding: 0.5rem 0;
+            }
+         }
+      }
+   }
+}
+
+@media (min-width: 992px) {
+   .main-header {
+      .logo {
+         width: 200px;
+      }
+   }
+}

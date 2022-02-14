@@ -1,0 +1,247 @@
+.kudi-card{
+   border-radius: $px10;
+   box-shadow: none;
+   border: none;
+
+   &.card{
+      margin-bottom: 0;
+   }
+
+   .card-header{
+      background: none;
+      color: $kudi-dark;
+      font-weight: 600;
+
+      i{
+         display: inline-block;
+         margin-right: $px15;
+         // color: $kudi-mid;
+      }
+   }
+
+   .card-body{
+      padding: $px10 0;
+   }
+
+   .image{
+      height: 200px;
+      background-size: cover;
+      border-radius: $px10;
+      background-color: #f3f3f3;
+      border-bottom: 1px solid #ddd;
+
+      a{
+         display: block;
+         height: 100%;
+         border-radius: 10px;
+         text-align: center;
+         padding-top: 80px;
+         font-size: 30px;
+         color: #fff;
+
+         i{
+            display: none;
+         }
+
+         &:hover{
+            opacity: 0.5;
+            background-color: #222;
+
+            i{
+               display: inline-block;
+            }
+         }
+      }
+   }
+
+   .title{
+      font-size: $px18;
+      line-height: 1.8rem;
+
+      a{
+         color: $kudi-dark;
+         text-decoration: none;
+         font-weight: 700;
+
+
+         &:hover{
+            color: $kudi-mid;
+         }
+      }
+   }
+
+   .guests{
+      margin-top: $px10;
+
+      .avatar {
+         background: #ddd;
+         width: $px30;
+         height: $px30;
+         display: inline-block;
+         border-radius: 50px;
+
+         img{
+            width: 100%;
+            border-radius: 50px;
+         }
+      }
+   }
+
+   .date{
+      margin-bottom: $px15;
+      font-size: $px14;
+      color: $kudi-mid;
+
+      .share{
+         a{
+            display: inline-block;
+            margin-left: $px10;
+            color: $kudi-mid;
+         }
+      }
+   }
+
+   .location{
+      font-size: $px14;
+      color: $kudi-mid;
+
+      i{
+         display: inline-block;
+         margin-right: $px5;
+         color: green;
+      }
+   }
+
+   .stats{
+      // color: $kudi-mid;
+
+      .like{
+         .icon{ color: $green; }
+      }
+      .view{
+         .icon{ color: #82acbd; }
+      }
+   }
+
+   &.stroke{
+      border: 1px solid $kudi-mid;
+      box-shadow: none;
+      color: $kudi-mid;
+
+      .title{
+         font-size: 2rem;
+      }
+   }
+
+   &.no-shadow{
+      box-shadow: none !important;
+   }
+}
+
+// bootstrap: cards
+.card {
+   margin-bottom: $px30;
+   border-radius: $px15;
+   // margin: $px20 $px10;
+
+   // .card-body{
+   //    // overflow-x: hidden;
+   // }
+
+   &.pms{
+      margin: $px20 $px10;
+   }
+
+   &.ws{
+      box-shadow: 0 3px 21px 0 rgb(0 0 0 / 7%);
+   }
+
+   &.wcb{
+      cursor: pointer;
+
+      &:hover{
+         box-shadow: 0 3px 25px 0 rgb(0 0 0 / 15%);
+      }
+   }
+
+   .card-header{
+      background: none;
+      border-bottom: 1px solid #e4e4e4;
+   }
+
+   .border-title{
+      position: relative;
+      margin-bottom: $px15;
+      left: $px20;
+
+      .title{
+         font-size: $px18;
+         margin-bottom: 0;
+         color: $kudi-dark;
+         line-height: 1.3;
+
+         a{
+            color: $kudi-dark;
+         }
+      }
+
+      &::after{
+         content: '';
+         display: block;
+         height: $px50;
+         width: $px5;
+         background: $kudi-mid;
+         position: absolute;
+         top: 0;
+         left: -21px;
+         border-radius: 0 $px20 $px20 0;
+      }
+
+      &.approve{
+         &::after{ background: $green; }
+      }
+      &.pending{
+         &::after{ background: $yellow; }
+      }
+      &.decline{
+         &::after{ background: $red; }
+      }
+   }
+
+   .stats{
+      // color: $kudi-mid;
+
+      .like{
+         .icon{ color: $green; }
+      }
+      .view{
+         .icon{ color: #82acbd; }
+      }
+   }
+}
+
+//
+
+
+@media (max-width: $md) {
+   .kudi-card{
+      .image{
+         height: 150px;
+      }
+   }
+}
+
+@media (max-width: $sm) {
+   .card{
+      margin: 0;
+      margin-bottom: 15px;
+
+      // .card-body{
+      //    border-bottom: 1px solid #e2e2e2;
+      // }
+
+      .pms{
+         margin: $px10 0;
+      }
+   }
+}

@@ -1,0 +1,63 @@
+.progress--box{
+
+	.rate{
+
+		.rate--meter {
+			display: inline-block;
+			width: 80%;
+			font-size: 12px;
+			background: #dadada;
+			height: 10px;
+			position: relative;
+			border-radius: 50px;
+			overflow: hidden;
+
+			&.fw{
+				width: 100%;
+			}
+
+			.meter{
+				position: relative;
+				display: block;
+				height: 10px;
+				position: absolute;
+				left: 0;
+				top: 0;
+				color: #000;
+				border-radius: 20px;
+				background-color: $kudi-dark;
+
+				&.yellow{ background-color: $yellow; }
+				&.green{ background-color: $green; }
+				&.blue{ background-color: $kudi-light; }
+			}
+
+			.label{
+				position: relative;
+				display: block;
+				padding: 2px;
+				z-index: 2;
+				padding-left: 15px;
+			}
+		}
+
+		.rate--number {
+			display: inline-block;
+			font-size: 15px;
+			margin-left: 7px;
+		}
+	}
+
+	.bar--1{background: #f00;}
+	.bar--2{background: #fa0;}
+	.bar--3{background: rgba(103, 58, 183, 0.68);}
+	.bar--4{background: rgba(0, 0, 255, 0.5);}
+	.bar--5{background: rgba(0, 128, 0, 0.4)}
+}
+
+.stars {
+	.rate{
+		color: #cbcbcb;
+		font-size: small;
+	}
+}

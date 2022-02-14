@@ -1,0 +1,89 @@
+//colors
+$primary: #023e4f;
+$secondary: #01789a;
+$black: #192A3E;
+$white: #fcfeff;
+$accent: #c3e0dd;
+$btn-accent: #035269;
+
+$green-blue: #25a7c3;
+$grey-black: #656565;
+$gray-light: #f7f7fb;
+$light-blue: #00bcd4;
+$grey: #C7C2C269;
+$grey-cb: #CBCBCB;
+$grey-ba: #BABABA;
+$grey-e4: #e4e3e3;
+$black: #080808;
+$lemon: #cddc39;
+$kudi-light: #297898;
+$kudi-dark: #023E4F;
+$kudi-darker: #00171d;
+$green: #1e9600;
+$yellow: #fa0;
+$ash: #B6B6B6;
+$kudi-mid: #01789A;
+$red: #cc0000;
+$error: #bf0711;
+
+// Sizes
+$px1: 0.0625rem;
+$px2: 0.0725rem;
+$px5: 0.3125rem;
+$px7: 0.3rem;
+$px10: 0.625rem;
+$px11: 0.7rem;
+$px12: 0.75rem;
+$px14: 0.875rem;
+$px15: 0.9375rem;
+$px16: 1rem;
+$px18: 1.125rem;
+$px19: 1.1875rem;
+$px20: 1.25rem;
+$px24: 1.5rem;
+$px30: 1.5rem;
+$px31: 1.96rem;
+$px32: 2rem;
+$px35: 2.19rem;
+$px37: 2.31rem;
+$px40: 2.5rem;
+$px45: 2.8125rem;
+$px50: 2.7rem;
+$px56: 3.5rem;
+$px60: 3.75rem;
+$px120: 7.5rem;
+
+
+// margins
+$m1-5: 1.5rem;
+
+// images
+$main-bg: '~static/images/main-bg.png';
+$contact-bg: '~static/svg/contact-bg.svg';
+
+// Breakpoint
+$xs: 0;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+
+// font
+$body-font: "Inter", sans-serif;
+$secondary-font: "Roboto", sans-serif;
+$title-size: 60px;
+// $story-title-size: 50px;
+$extra-bold: 900;
+$bold: 700;
+$normal: 400;
+
+
+// @font-face {
+//   font-family: 'Segoe UI';
+//   font-style: normal;
+//   // font-weight: 400;
+//   font-display: swap;
+//   src: url('~assets/fonts/Segoe UI.ttf') format('truetype');
+// }

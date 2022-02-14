@@ -1,0 +1,101 @@
+.auth--layer{
+	// background:  url($dotted-bg);
+	padding-bottom: 50px;
+}
+
+.auth-box {
+   position: relative;
+	background: #fff;
+	padding: 30px;
+	border-radius: 10px;
+	box-shadow: 0 3px 21px 0 rgb(0 0 0 / 7%);
+
+	// .input{
+	// 	width: 100%;
+	// 	padding: 15px 20px;
+	// 	margin-bottom: 10px;
+	// 	border-radius: 10px;
+	// 	border: 1px solid #babcc1;
+	// 	outline: none;
+
+	// 	&:hover, &:focus{
+	// 		outline: none;
+	// 		border: 1px solid #aaa;
+	// 	}
+	// }
+
+	// .field{
+	// 	margin-bottom: 10px;
+	// }
+
+	.kudi--btn{
+		display: block;
+		text-align: center;
+		background: #009688;
+		cursor: pointer;
+		width: 100%;
+		outline: none;
+		border: none;
+	}
+
+	.stay{
+		font-size: 14px;
+	}
+
+	.password--box{
+		position: relative;
+
+		.icon--show{
+			position: absolute;
+			right: 0;
+			top: 0;
+			color: #888;
+			cursor: pointer;
+
+			&:hover{
+				color: #454545;
+			}
+		}
+
+		.icon{
+			svg {
+			   fill: #888;
+			}
+		}
+	}
+
+	.forgot-pass{
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: #fff;
+		width: 100%;
+		height: 100%;
+		z-index: 222;
+		padding: 40px;
+		border-radius: 10px;
+		border: 1px solid #ddd;
+	}
+
+	.social-login{
+		.kbtn{
+			font-weight: 600;
+
+			&:hover{
+				background-color: $grey-e4;
+				color: $kudi-light;
+			}
+		}
+		.icon{
+			width: 1rem;
+			margin: 0;
+			margin-right: $px5;
+
+			svg{
+				height: 1rem;
+			}
+		}
+	}
+}
+
+

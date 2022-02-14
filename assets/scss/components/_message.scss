@@ -1,0 +1,33 @@
+.message-box{
+   margin-top: $px50;
+
+   .message-list{
+      height: 70vh;
+      overflow: auto;
+
+      .message{
+         padding: $px10 $px20;
+         border-bottom: 2px solid #ddd;
+         color: $kudi-dark;
+         cursor: pointer;
+
+         &:hover,
+         &.active{
+            background: #f6f6f6;
+         }
+
+         &::last-child{
+            border: none;
+         }
+      }
+   }
+
+   .no-message{
+      padding: $px50;
+
+      .icon{
+         font-size: 80px;
+         color: #b1cfd5;
+      }
+   }
+}

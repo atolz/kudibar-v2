@@ -1,0 +1,250 @@
+.event-detail{
+   position: relative;
+
+   .cover-bg{
+      height: 450px;
+      position: relative;
+      border-radius: 10px;
+      background-size: cover;
+      background-color: #111;
+      overflow: hidden;
+
+      .video-box{
+         height: 100%;
+         position: absolute;
+         width: 100%;
+         text-align: right;
+         transition: .5s;
+
+         .pd{
+            padding: $px30;
+         }
+
+         .icon{
+            display: inline-block;
+            color: #ffffff;
+            background: #6f6f6f4d;
+            padding: $px10 $px20;
+            border-radius: $px50;
+            margin-bottom: $px5;
+            text-decoration: none;
+
+            &:hover{
+               opacity: .6;
+               color: #fff;
+               text-decoration: none;
+            }
+         }
+
+         .close{
+            position: absolute;
+            color: #fff;
+            z-index: 10;
+            right:  $px10;
+            top: $px10;
+            cursor: pointer;
+
+            background: rgba(111,111,111,.3);
+            padding: $px10 $px20;
+            border-radius: $px50;
+            margin-bottom: $px5;
+
+            &:hover{
+               opacity: .6;
+               color: #fff;
+               text-decoration: none;
+            }
+         }
+
+         .box{
+            height: 450px;
+         }
+
+         // &:hover{
+         //    background: #00000075;
+         // }
+      }
+   }
+
+   .top{
+      top: -$px60;
+      transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+
+      .card-body{
+         padding: $px35;
+      }
+   }
+   .top-flat{
+      transition: top 300ms cubic-bezier(0.17, 0.04, 0.03, 0.94);
+      top: 0 !important;
+   }
+
+   .p-top{
+      position: relative;
+      top: -$px30;
+   }
+
+   .blur-bg{
+      height: 350px;
+      background-color: $grey-ba;
+      filter: grayscale(100%);
+      position: relative;
+
+      &::after{
+         content: "";
+         display: block;
+         position: absolute;
+         top: 0;
+         bottom: 0;
+         left: 0;
+         right: 0;
+         background-color: rgba($color: $kudi-mid, $alpha: .05);
+         backdrop-filter: blur(10px);
+      }
+   }
+
+   .event-area{
+
+      .wrap{
+         background-color: white;
+      }
+
+      .basic{
+         .cover{
+            background-color: $kudi-dark;
+            height: 450px;
+            overflow: hidden;
+
+            img{
+               width: 100%;
+            }
+         }
+
+         .side{
+            background-color: rgba($color: $kudi-mid, $alpha: .09);
+            height: 100%;
+            padding: $px50;
+            position: relative;
+
+            .price{
+               margin-top: $px30;
+            }
+
+            .util{
+               a{
+                  color: $kudi-dark;
+               }
+
+               .like-btn{
+                  display: inline-block;
+                  padding-right: 20px;
+               }
+            }
+
+            .button-box{
+               position: absolute;
+               bottom: 50px;
+               width: 28vw;
+            }
+         }
+      }
+   }
+
+   .speaker{
+      .avatar{
+         width: 2rem;
+         height: 2rem;
+         border-radius: 50pc;
+      }
+
+      .name{
+         font-size: 16px;
+      }
+
+      .position{
+         font-size: 14px;
+      }
+   }
+
+   .partners{
+      .list{
+         .logo{
+            height: $px60;
+            margin-bottom: $px30;
+
+            img{
+               max-width: 100%;
+               max-height: 100%;
+            }
+         }
+      }
+   }
+
+   .rsvp{
+      .action {
+         font-size: $px30;
+         color: $grey-ba;
+         display: inline-block;
+         margin-right: $px15;
+      }
+   }
+
+   .util {
+      a{
+         color: #afafaf;
+         margin-left: 15px;
+         font-size: 21px;
+
+         &.like-btn{
+            color: #1e9600;
+         }
+
+         &.share-like{
+            color: #82acbd;
+         }
+
+         &:hover{
+            opacity: .7;
+         }
+      }
+   }
+
+   .free-ticket{
+      .ticket{
+         padding: 10px;
+         margin-bottom: 10px;
+         background: #e8f3ff;
+         border-radius: 10px;
+      }
+   }
+}
+
+.event-featured {
+   padding: $px30;
+   border-radius: $px15;
+   background: #ebf6f6;
+}
+
+
+
+
+@media (max-width: $sm) {
+  .event-detail{
+    .top {
+      top: 0;
+      margin-bottom: $px20;
+
+      .title{
+        &.big{
+          margin: 0;
+          font-size: 120% !important;
+          line-height: 1.5rem;
+          margin-bottom: 7px;
+        }
+      }
+      .card-body {
+        padding: $px15 0;
+      }
+    }
+  }
+}

@@ -1,0 +1,380 @@
+.field {
+  padding: 0 $px15;
+  border: $px1 solid $grey;
+  border-radius: 5px;
+  position: relative;
+  // background: #edf2f6;
+  background: #f0f3f5;
+
+  .ta-title {
+    // color: #c7c2c287;
+    color: #848484;
+    font-size: $px14;
+    font-style: normal;
+    font-weight: 600;
+    line-height: $px19;
+    font-family: "Roboto", sans-serif;
+    padding-top: 0.9rem;
+    display: block;
+  }
+
+  textarea,
+  select,
+  input {
+    color: $grey;
+    width: 100%;
+    height: $px50;
+    border: none;
+    background: none;
+    color: $black;
+
+    &:focus {
+      outline: none;
+      color: $black;
+    }
+
+    ::placeholder {
+      color: $grey;
+      font-size: $px14;
+      font-style: normal;
+      font-weight: normal;
+      line-height: $px19;
+      font-family: "Roboto", sans-serif;
+    }
+  }
+
+  textarea {
+    height: auto;
+  }
+
+  &:focus-within,
+  &:hover {
+    border: 1px solid $kudi-mid;
+
+    .ta-title {
+      color: $kudi-mid;
+    }
+  }
+
+  &.dp {
+    padding: $px5 0.8rem;
+
+    .ta-title {
+      padding-top: $px5;
+      color: $kudi-dark;
+      margin-left: $px24;
+      font-size: small;
+    }
+
+    .mx-input {
+      box-shadow: none;
+      height: $px30;
+      margin-left: $px15;
+      color: $kudi-dark;
+      font-size: $px20;
+      font-weight: 360;
+      padding-right: 0;
+    }
+
+    .mx-icon-clear,
+    .mx-icon-calendar {
+      left: -5px;
+      top: $px5;
+
+      svg {
+        fill: $kudi-dark;
+      }
+    }
+
+    .cu {
+      position: absolute;
+      top: 20px;
+      font-weight: 700;
+    }
+  }
+
+  &.tx {
+    padding: $px5 $px20;
+
+    .ta-title {
+      padding-top: 0;
+    }
+
+    input,
+    select,
+    textarea {
+      font-size: 12px;
+      height: 20px;
+      overflow: hidden;
+      height: $px19;
+    }
+  }
+
+  &.with-icon {
+    .icon {
+      position: absolute;
+      top: $px10;
+      color: $grey;
+    }
+    .cu {
+      position: absolute;
+      left: 20px;
+      font-weight: 700;
+    }
+    input {
+      padding-left: $px30;
+    }
+    &::after {
+      content: "";
+      display: block;
+      clear: both;
+    }
+  }
+
+  &.sm {
+    padding-bottom: $px5;
+
+    .ta-title {
+      padding-top: $px5;
+    }
+
+    select,
+    input {
+      height: $px20;
+      font-size: $px18;
+      padding: 0;
+    }
+  }
+}
+
+// Group
+.ce-grp {
+  padding-bottom: $px30;
+  margin-bottom: $px30;
+  border-bottom: 0.0625rem solid $grey-e4;
+}
+
+.br-grp {
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+}
+
+.rb-grp {
+  background-color: rgba($color: $kudi-light, $alpha: 0.07);
+  border-radius: $px10;
+  padding: $px30;
+}
+
+// Padding & margin
+.pm {
+  padding: $px15 0;
+  margin: $px15 0;
+}
+
+// Side nav
+.ce-list {
+  list-style: none;
+  font-size: 1rem;
+  font-weight: normal;
+  font-style: normal;
+  line-height: $px19;
+  padding-left: 0;
+
+  @media (max-width: 765px) {
+    display: flex;
+    flex-wrap: nowrap !important;
+    white-space: nowrap;
+    overflow-x: scroll;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    appearance: none;
+    display: none;
+  }
+
+  a {
+    color: $grey-e4;
+    // font-family: "Roboto", sans-serif;
+    text-decoration: none;
+    border-radius: 50px;
+    border: 1px solid #e4e4e4;
+    padding: 6px 16px;
+
+    &:hover {
+      color: $kudi-dark;
+    }
+
+    &.active {
+      color: $kudi-dark;
+
+      //  &::after {
+      //    content: '';
+      //    width: 2px;
+      //    height: 22px;
+      //    background: #023E4F;
+      //    display: block;
+      //    position: absolute;
+      //    left: -26px;
+      //    top: 0;
+      // }
+    }
+  }
+
+  li {
+    padding-bottom: $px24;
+
+    padding: 10px 0;
+
+    // &:last-child {
+    //    padding-bottom: 0;
+    // }
+  }
+
+  //  &::after{
+  //    content: '';
+  //    width: 14px;
+  //    height: 14px;
+  //    border: 2px solid #ddd;
+  //    display: block;
+  //    position: absolute;
+  //    left: -6px;
+  //    border-radius: 20px;
+  //  }
+}
+
+// Trash
+.float-trash {
+  position: absolute;
+  top: 5px;
+  right: -55px;
+}
+
+// Trash button
+.trash {
+  background-color: rgba(41, 120, 152, 0.07);
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+  text-align: center;
+  padding-top: 15px;
+  border-radius: 50px;
+  color: $kudi-dark;
+
+  &:hover {
+    color: $red;
+    opacity: 0.7;
+  }
+}
+
+// Radio / checkbox
+.rdio {
+  position: relative;
+  input[type="radio"] {
+    opacity: 0;
+  }
+  label {
+    padding-left: 10px;
+    cursor: pointer;
+    margin-bottom: 7px !important;
+    &:before {
+      width: 18px;
+      height: 18px;
+      position: absolute;
+      top: 1px;
+      left: 0;
+      content: "";
+      display: inline-block;
+      -moz-border-radius: 50px;
+      -webkit-border-radius: 50px;
+      border-radius: 50px;
+      border: 1px solid $kudi-mid;
+      background: #fff;
+    }
+  }
+  input[type="radio"] {
+    margin: 0px;
+    &:disabled + label {
+      color: #999;
+      &:before {
+        background-color: $kudi-mid;
+      }
+    }
+    &:checked + label::after {
+      content: "";
+      position: absolute;
+      top: 5px;
+      left: 4px;
+      display: inline-block;
+      font-size: 11px;
+      width: 10px;
+      height: 10px;
+      background-color: $kudi-mid;
+      -moz-border-radius: 50px;
+      -webkit-border-radius: 50px;
+      border-radius: 50px;
+    }
+  }
+  &.rdio-default input[type="radio"]:checked + label:before {
+    border-color: $kudi-mid;
+  }
+
+  &.rdio-primary input[type="radio"]:checked + label {
+    &:before {
+      border-color: $kudi-mid;
+    }
+    &::after {
+      background-color: $kudi-mid;
+    }
+  }
+}
+
+.form-group--error {
+  border-color: $error;
+}
+
+@media (min-width: 768px) {
+  .ce-list {
+    border-left: 1px solid #ddd;
+    padding-left: 25px;
+    // max-height: 100px;
+    position: relative;
+
+    a {
+      position: relative;
+      border-radius: 0;
+      border: 0;
+      padding: 0;
+
+      &.active {
+        &::after {
+          content: "";
+          width: 2px;
+          height: 22px;
+          background: #023e4f;
+          display: block;
+          position: absolute;
+          left: -26px;
+          top: 0;
+        }
+      }
+    }
+
+    &::after {
+      content: "";
+      width: 14px;
+      height: 14px;
+      border: 2px solid #ddd;
+      display: block;
+      position: absolute;
+      bottom: -12px;
+      left: -8px;
+      border-radius: 20px;
+    }
+  }
+}
+
+// <div class="custom-checkbox">
+// <input name="noti_6" class="checkbox-custom" id="noti_6" value="6" type="checkbox">
+// <label class="checkbox-custom-label" for="noti_6">Check me</label>
+// </div>

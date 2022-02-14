@@ -1,0 +1,16 @@
+.kb-alert{
+   border: 1px solid #ddd;
+   border-left: 5px solid #ddd;
+   padding: $px10 $px20;
+   border-radius: 5px;
+
+   &-success{
+      border-color: #219653;
+      color: #219653;
+   }
+
+   &-error{
+      border-color: $red;
+      color: $red;
+   }
+}

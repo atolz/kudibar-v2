@@ -18,10 +18,10 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
-
-  // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  css: [
+    "~/assets/scss/main.scss",
+    "@/assets/css/icon-fonts.css",
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -30,10 +30,7 @@ export default {
   buildModules: [],
 
   // Modules: https://go.nuxtjs.dev/config-modules
-  modules: [
-    "@nuxtjs/axios",
-    "@nuxtjs/auth-next",
-  ],
+  modules: ["@nuxtjs/axios", "@nuxtjs/auth-next"],
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
@@ -60,8 +57,51 @@ export default {
           user: { url: "/auth/token", method: "get" },
         },
       },
+      facebook: {
+        endpoints: {
+          userInfo:
+            "https://graph.facebook.com/v9.0/me?fields=about,name,picture{url},email,birthday",
+          // userInfo: "https://graph.facebook.com/v6.0/me?fields=id,about,name,picture{url},email,birthday"
+        },
+        clientId: process.env.FB_ID,
+        // clientSecret: "f01cbbb3af1be707b37ed35dc8aa61d8",
+        scope: ["public_profile", "email"],
+        redirectUri: process.env.BASE_URL + "/signin",
+      },
+      google: {
+        clientId: process.env.GOOGLE_ID,
+        redirectUri: process.env.BASE_URL + "/signin",
+        codeChallengeMethod: "",
+        responseType: "token id_token",
+        // grantType: "authorization_code",
+        scope: ["profile", "email"],
+        // token: { property: "false" }
+      },
     },
   },
+
+  plugins: [
+    "./plugins/axios",
+    "./plugins/helpers",
+    // "./plugins/rave",
+    // "./plugins/socket",
+    // "./plugins/validate",
+    // "./plugins/datepicker",
+
+    // "@/plugins/notify",
+    // "@/plugins/moment",
+    // "@/plugins/encrypt",
+    // "@/plugins/number",
+
+    // "~/plugins/vue-tooltip.js",
+    // { src: "@/plugins/vue-datepicker", mode: "client" },
+    // { src: "@/plugins/qr-scanner", mode: "client" },
+    // { src: "@plugins/ga.js", mode: "client" },
+    // {
+    //    src: "~/plugins/capacitor.js",
+    //    mode: "client"
+    // }
+  ],
 
   server: {
     port: process.env.PORT, // default: 3000

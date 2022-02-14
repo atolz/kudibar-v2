@@ -1,0 +1,138 @@
+.form {
+  label {
+    color: #585c67;
+    font-family: Roboto;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    margin-bottom: 4px;
+  }
+
+  .form-group {
+    margin-bottom: 38px;
+  }
+}
+
+.kudi-radio-input {
+  display: none;
+
+  &:checked ~ label .kudi-radio-btn {
+    border: 2px solid #023e4f;
+  }
+  &:checked ~ label .kudi-radio-btn::after {
+    display: inline-block;
+  }
+}
+
+.kudi-radio-group {
+  display: inline-flex;
+}
+
+.kudi-radio-label {
+  position: relative;
+  padding: 0 32px;
+  padding-top: 4px;
+  cursor: pointer;
+  color: #585c67;
+
+  font-family: Roboto;
+  font-size: 16px !important;
+  font-style: normal !important;
+  font-weight: 400;
+  line-height: 19px !important;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.kudi-radio-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  // border: 2px solid #023E4F;
+  box-shadow: 0px 4px 8px rgba(44, 39, 56, 0.08);
+  border: 1px solid #dbe2ea;
+  display: inline-flex;
+  justify-items: center;
+  align-items: center;
+  justify-content: center;
+  // transition: all 0.21s;
+
+  &::after {
+    content: "";
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: none;
+    background-color: #023e4f;
+  }
+}
+
+.kudi-input {
+  background-color: #f0f3f5;
+  border-radius: 5px;
+  width: 100%;
+  min-width: 100px;
+  outline: none;
+  padding: 15px 20px;
+  border: none;
+  margin-bottom: 24px;
+
+  &::-webkit-input-placeholder {
+    font-family: Roboto;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+
+    color: #585c67;
+    // &::-webkit-input-placeholder {
+    //     color: $color-grey-dark-1;
+    //   }
+  }
+}
+.kudi-label {
+  color: #585c67;
+  font-family: Roboto;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 19px;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.kudi-select {
+  color: #585c67;
+  font-weight: 400;
+  background-image: url(/images/icons/Arrow-Down.svg);
+  background-repeat: no-repeat;
+  background-position: 92%;
+  appearance: none;
+  background-size: 14px;
+}
+
+.kudi-calender {
+  color: #585c67;
+  font-weight: 400;
+  &::-webkit-calendar-picker-indicator {
+    background-image: url(/images/icons/Time-Circle.svg);
+    width: 18px;
+    height: 18px;
+    opacity: 1;
+    display: block;
+  }
+}
+.kudi-time {
+  color: #585c67;
+  &::-webkit-calendar-picker-indicator {
+    background-image: url(/images/icons/Time-Circle.svg);
+  }
+}

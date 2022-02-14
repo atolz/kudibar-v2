@@ -1,0 +1,13 @@
+.kudi-table{
+   &.head{
+      padding: $px15 $px20;
+      border-bottom: 1px solid #ddd;
+      background: #f3f9ff;
+      font-weight: 600;
+   }
+
+   &.body{
+      padding: $px10 $px20;
+      border-bottom: 1px solid #ddd;
+   }
+}
