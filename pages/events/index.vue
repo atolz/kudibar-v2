@@ -24,7 +24,11 @@
               <i class="icon-Share"></i><span>700k</span>
             </button>
             <button class="my-card__btn my-card__btn--like">
-              <i class="icon-Love"></i><span>30</span>
+              <!-- <i class="icon-Share"></i> -->
+              <svg class="svg-icon">
+                <use xlink:href="/images/sprite.svg#icon-love-card"></use>
+              </svg>
+              <span>30</span>
             </button>
             <!-- <button class="my-card__btn my-card__btn--info">
               <i class="icon-Filter"></i>
@@ -34,7 +38,7 @@
         <div class="my-card__body" :style="{ '--tag-color': '#1EAE07' }">
           <div>
             <h4 class="kudi-h4">Music Jam Festival</h4>
-            <Label
+            <kudi-label
               :text="'Approved'"
               :color="'#023E4F'"
               :bg="'#B4E1FD'"
@@ -66,7 +70,7 @@
         <div class="my-card__body" :style="{ '--tag-color': '#F08800' }">
           <div>
             <h4 class="kudi-h4">Music Jam Festival</h4>
-            <Label
+            <kudi-label
               :text="'Approved'"
               :color="'#F08800'"
               :bg="'#FCE3C2'"

@@ -8,7 +8,7 @@
 
     <nuxt />
 
-    <mobile-nav v-if="authenticated" />
+    <!-- <mobile-nav v-if="authenticated" /> -->
 
     <!-- footer -->
     <footer-nav v-if="!authenticated" />

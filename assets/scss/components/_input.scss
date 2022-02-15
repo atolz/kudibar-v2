@@ -123,7 +123,7 @@
   color: #585c67;
   font-weight: 400;
   &::-webkit-calendar-picker-indicator {
-    background-image: url(/images/icons/Time-Circle.svg);
+    background-image: url(/images/icons/Time-Circle.svg) !important;
     width: 18px;
     height: 18px;
     opacity: 1;
@@ -133,6 +133,6 @@
 .kudi-time {
   color: #585c67;
   &::-webkit-calendar-picker-indicator {
-    background-image: url(/images/icons/Time-Circle.svg);
+    background-image: url(/images/icons/Time-Circle.svg) !important;
   }
 }
