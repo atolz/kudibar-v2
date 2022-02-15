@@ -14,14 +14,25 @@ export default {
       { hid: "description", name: "description", content: "" },
       { name: "format-detection", content: "telephone=no" },
     ],
-    link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+    link: [
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+
+      // Cairo, Roboto, PermanentMarker Fonts
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&family=Permanent+Marker&family=Righteous&family=Roboto:wght@400;500;700&display=swap",
+      },
+
+      // Segoe UI
+      {
+        rel: "stylesheet",
+        href: "http://fonts.cdnfonts.com/css/segoe-ui-4",
+      },
+    ],
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [
-    "~/assets/scss/main.scss",
-    "@/assets/css/icon-fonts.css",
-  ],
+  css: ["~/assets/scss/main.scss", "@/assets/css/icon-fonts.css"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
