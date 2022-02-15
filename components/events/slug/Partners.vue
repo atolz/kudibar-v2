@@ -65,10 +65,7 @@
 </template>
 
 <script>
-import Label from "../Label.vue";
-export default {
-  components: { Label },
-};
+export default {};
 </script>
 
 <style scoped lang="scss">
