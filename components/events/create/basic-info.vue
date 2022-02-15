@@ -234,7 +234,7 @@
         <div class="col-sm-4">
           <label for="time" class="">Time</label>
           <input
-            id="event title"
+            id="time"
             type="time"
             class="kudi-input kudi-calender"
             placeholder="Title"
