@@ -28,6 +28,7 @@ import spinner from "@/components/spinner";
 export default {
   data() {
     return {
+      authenticated: false,
       popOut: true,
       showHideSpinner: true,
       // isMobile: false

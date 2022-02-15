@@ -122,14 +122,30 @@
 .kudi-calender {
   color: #585c67;
   font-weight: 400;
+  background-image: url(/images/icons/Time-Circle.svg) !important;
+  background-repeat: no-repeat;
+  background-position: 94%;
+  background-size: 20px;
+
   &::-webkit-calendar-picker-indicator {
-    background-image: url(/images/icons/Time-Circle.svg) !important;
-    width: 18px;
-    height: 18px;
-    opacity: 1;
-    display: block;
+    appearance: none;
+    // background-image: url(/images/icons/Time-Circle.svg) !important;
+    // width: 18px;
+    // height: 18px;
+    // opacity: 1;
+    display: none;
+  }
+  &::-moz-calendar-picker-indicator {
+    appearance: none;
+    display: none;
+    // background-image: url(/images/icons/Time-Circle.svg) !important;
+    // width: 18px;
+    // height: 18px;
+    // opacity: 1;
+    // display: block;
   }
 }
+
 .kudi-time {
   color: #585c67;
   &::-webkit-calendar-picker-indicator {
