@@ -90,6 +90,7 @@ export default {};
     min-width: 281px;
     width: 100%;
     border-radius: 8px;
+    margin-bottom: 22px;
     &__body {
       background: #f0f3f5;
       display: grid;

@@ -126,9 +126,11 @@
   background-repeat: no-repeat;
   background-position: 94%;
   background-size: 20px;
+  -webkit-appearance: none;
 
   &::-webkit-calendar-picker-indicator {
-    appearance: none;
+    display: none;
+    -webkit-appearance: none;
     // background-image: url(/images/icons/Time-Circle.svg) !important;
     // width: 18px;
     // height: 18px;
@@ -136,8 +138,8 @@
     display: none;
   }
   &::-moz-calendar-picker-indicator {
-    appearance: none;
     display: none;
+    -webkit-appearance: none;
     // background-image: url(/images/icons/Time-Circle.svg) !important;
     // width: 18px;
     // height: 18px;
@@ -148,7 +150,10 @@
 
 .kudi-time {
   color: #585c67;
+  -webkit-appearance: none;
   &::-webkit-calendar-picker-indicator {
     background-image: url(/images/icons/Time-Circle.svg) !important;
+    display: none;
+    -webkit-appearance: none;
   }
 }
