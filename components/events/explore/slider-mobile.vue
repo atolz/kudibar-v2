@@ -96,7 +96,8 @@ export default {};
   overflow: scroll;
   display: none;
   padding: 30px 0;
-
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
   @media (max-width: 900px) {
     display: flex;
   }
@@ -106,6 +107,8 @@ export default {};
     width: max-content;
     min-height: 150px;
     position: relative;
+    scroll-snap-align: start;
+    scroll-behavior: smooth;
 
     .blur {
       background: linear-gradient(0deg, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3));

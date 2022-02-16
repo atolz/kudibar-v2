@@ -58,9 +58,9 @@
 </template>
 
 <script>
-import eventsBox from "@/components/events/index/all";
-import sliderMobile from "@/components/events/index/slider-mobile";
-import sliderWeb from "@/components/events/index/slider-web";
+import eventsBox from "@/components/events/explore/all";
+import sliderMobile from "@/components/events/explore/slider-mobile";
+import sliderWeb from "@/components/events/explore/slider-web";
 
 export default {
   data() {
@@ -124,7 +124,8 @@ export default {
 }
 
 .my-container {
-  max-width: 1400px;
+  // max-width: 1400px;
+  max-width: 1300px;
   padding: 0 20px;
   margin: 0 auto;
 }

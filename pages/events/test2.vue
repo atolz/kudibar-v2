@@ -1,5 +1,5 @@
 <template>
-  <div class="container mt-4">
+  <div class="container">
     <div class="row g-4 g-md-0">
       <div class="col-12 col-md-4 col-lg-3">
         <!-- Side menu -->
@@ -16,7 +16,7 @@
         </ul>
       </div>
 
-      <div class="col-12 col-md-8 col-lg-7" style="margin-bottom: 100px">
+      <div class="col-12 col-md-8 col-lg-7">
         <!-- basic info -->
         <div class="hide" :class="{ show: filters[0].active }">
           <!-- Basic info starts here -->
@@ -106,7 +106,6 @@
               <!-- <div class="">
                            <strong>Search location</strong>
                            <div class="s-10"></div>
-
                            <div class="field with-icon">
                               <span class="icon">
                                  <i class="fa fa-search" aria-hidden="true"></i>
@@ -314,7 +313,7 @@
 
             <div class="">
               <a href="#" @click.prevent="addEventDay" class="title dark mid">
-                Add another day+
+                Add another day
                 <i class="fa fa-plus"></i>
               </a>
               <div class="s-30"></div>
@@ -446,8 +445,7 @@
                       }"
                     >
                       <span class="ta-title">Price</span>
-
-                      <input
+                      <vue-numeric
                         class="mx-input"
                         separator=","
                         v-model.number="pay.price"
@@ -455,7 +453,7 @@
                         @input="
                           validate('payments', i).price.$model = pay.price
                         "
-                      />
+                      ></vue-numeric>
 
                       <span class="cu">
                         {{ $helper.currency(event.currency) }}
@@ -828,7 +826,260 @@
 
         <!-- review -->
         <div class="hide" :class="{ show: filters[3].active }">
-          <PrevSubmit />
+          <div class="ce-grp">
+            <h2 class="title big dark">Preview &amp; submit</h2>
+            <p class="title x-small light">
+              Take your time to review your input.
+            </p>
+
+            <div class="ce-grp text">
+              <div class="form-group">
+                <strong>Title</strong> <br />
+                <span>{{ event.title }}</span>
+                <field-errors
+                  v-if="$v.event.title.$error"
+                  :field="$v.event.title"
+                />
+              </div>
+
+              <div class="form-group">
+                <strong>Description</strong> <br />
+                <span>{{ event.description }}</span>
+                <field-errors
+                  v-if="$v.event.description.$error"
+                  :field="$v.event.description"
+                />
+              </div>
+
+              <div class="row" v-if="!event.isOnline">
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <strong>Country</strong> <br />
+                    <span>{{ event.country }}</span>
+                  </div>
+                </div>
+                <div class="col-sm-6">
+                  <div class="form-group">
+                    <strong>State</strong> <br />
+                    <span>{{ event.state }}</span>
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <div class="form-group">
+                    <strong>Venue</strong> <br />
+                    <span>{{ event.venue }}</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="col-sm-4">
+                  <span v-if="event.isOnline">
+                    <i class="fa fa-wifi"></i>
+                    Online event
+                  </span>
+                  <span v-else>
+                    <i class="fa fa-map-marker-alt"></i>
+                    Offline event
+                  </span>
+                </div>
+                <div class="col-sm-4">
+                  <span v-if="event.isPublic">
+                    <!-- <i class="fa fa-wifi"></i> -->
+                    Public event
+                  </span>
+                  <span v-else style="color: #ff9800">
+                    <!-- <i class="fa fa-map-marker-alt"></i> -->
+                    Private event
+                  </span>
+                </div>
+                <!-- <div class="col-sm-4">
+                              --
+                           </div> -->
+              </div>
+            </div>
+
+            <div class="ce-grp text">
+              <h3 class="title small dark">Schedules</h3>
+
+              <div class="row">
+                <div
+                  class="col-sm-6"
+                  v-for="(sch, i) in event.schedules"
+                  :key="i"
+                >
+                  <div class="card">
+                    <div class="card-body">
+                      <div>
+                        <small>
+                          <strong>Date</strong>
+                        </small>
+                        <br />
+                        <span v-if="event.schedules[0].date != ''">
+                          {{ $helper.dateFilter(event.schedules[0].date) }}
+                        </span>
+                      </div>
+
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <small>
+                            <strong>Start time</strong>
+                          </small>
+                          <br />
+                          {{ sch.start }}
+                        </div>
+                        <div class="col-sm-6">
+                          <small>
+                            <strong>End time</strong>
+                          </small>
+                          <br />
+                          {{ sch.end }}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- media -->
+            <div class="ce-grp text">
+              <h3 class="title small dark">Media</h3>
+              <div class="row">
+                <div class="col-sm-6">
+                  <strong>Cover image</strong>
+                  <div
+                    class="form-group"
+                    style="max-height: 200px; overflow: hidden"
+                  >
+                    <img
+                      :src="event.media.picture"
+                      style="width: 100%; border-radius: 10px"
+                    />
+                  </div>
+                </div>
+
+                <div class="col-sm-6" v-if="event.media.video !== ''">
+                  <strong>Video </strong>
+                  <div
+                    class=""
+                    v-html="buildVideoFromStr(event.media.video)"
+                    style="max-height: 200px; overflow: hidden"
+                  ></div>
+                </div>
+              </div>
+            </div>
+            <!-- end media -->
+
+            <!-- payments -->
+            <div class="ce-grp text">
+              <h3 class="title small dark">Ticket Categories</h3>
+
+              <div class="row" v-if="event.isPaid">
+                <div
+                  class="col-sm-6"
+                  v-for="(pay, i) in event.payments"
+                  :key="i"
+                >
+                  <strong style="display: block; margin-bottom: 10px">
+                    {{ pay.category }}
+                    <i
+                      class="fas fa-clipboard-list"
+                      style="color: #ddd; margin-left: 10px"
+                    ></i>
+                  </strong>
+                  <div class="card">
+                    <div class="card-body">
+                      <!-- <div class="form-group">
+                                       <strong>Category</strong> <br>
+                                       {{ pay.category }}
+                                    </div> -->
+                      <div class="row form-group">
+                        <div class="col-sm-6">
+                          <strong>Amount</strong> <br />
+                          {{
+                            $helper.currency(event.currency) +
+                            $helper.number_format(pay.price)
+                          }}
+                        </div>
+                        <div class="col-sm-6">
+                          <strong>Quantity</strong> <br />
+                          {{ pay.tickets }}
+                        </div>
+                      </div>
+                      <div v-if="pay.hasEarlyBird" class="form-group">
+                        <strong
+                          style="
+                            display: block;
+                            border-bottom: 1px dashed #ddd;
+                            margin-bottom: 10px;
+                          "
+                          >Early bird</strong
+                        >
+
+                        <strong>Discount (%)</strong> -
+                        {{ pay.earlyBird.amount }}% <br />
+                        <strong>Quantity</strong> -
+                        {{ pay.earlyBird.quantity }} <br />
+                        <strong>Expiry Date</strong> -
+                        <span v-if="pay.earlyBird.date != ''">
+                          {{ $helper.dateFilter(pay.earlyBird.date) }}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div v-else>
+                <span style="font-size: 25px">
+                  Free attendance |
+                  <span>
+                    <i
+                      class="fas fa-clipboard-list"
+                      style="color: #ddd; margin-left: 10px"
+                    ></i>
+                    {{ event.payments[0].tickets }} pass
+                  </span>
+                </span>
+              </div>
+            </div>
+            <!-- end payments -->
+
+            <!-- Contacts -->
+            <div class="ce-grp text no-border">
+              <h3 class="title small dark">RSVP</h3>
+              <div>
+                <i class="fas fa-at"></i>
+                <strong>Email</strong> - {{ event.contact.email }}
+              </div>
+              <div>
+                <i class="fas fa-phone"></i>
+                <strong>Phone</strong> - {{ event.contact.phone }}
+              </div>
+              <div v-if="event.contact.facebook != ''">
+                <i class="fab fa-facebook"></i>
+                <strong>Facebook</strong> -
+                {{ event.contact.facebook }}
+              </div>
+              <div v-if="event.contact.twitter != ''">
+                <i class="fab fa-twitter"></i>
+                <strong>Twitter</strong> -
+                {{ event.contact.twitter }}
+              </div>
+              <div v-if="event.contact.instagram != ''">
+                <i class="fab fa-instagram"></i>
+                <strong>Instagram</strong> -
+                {{ event.contact.instagram }}
+              </div>
+
+              <div v-if="hasError" style="margin-top: 20px; font-size: 20px">
+                <i class="fas fa-exclamation-triangle" style="color: red"></i>
+                Please navigate back to fill the required fields
+              </div>
+            </div>
+            <!-- end contacts -->
+          </div>
         </div>
         <!-- end review -->
       </div>
@@ -896,9 +1147,6 @@ import loader from "@/components/util/loader";
 import svgIcon from "@/components/util/svg-loader";
 import fieldErrors from "@/components/input/validation";
 import moment from "moment";
-
-import PrevSubmit from "@/components/events/create/prev-submit.vue";
-
 import {
   required,
   minLength,
@@ -906,7 +1154,6 @@ import {
   email,
   numeric,
 } from "vuelidate/lib/validators";
-
 export default {
   layout: "dashboard",
   head() {
@@ -915,7 +1162,6 @@ export default {
       meta: [],
     };
   },
-
   data() {
     return {
       days: 1,
@@ -1039,7 +1285,6 @@ export default {
       },
     };
   },
-
   validations: {
     event: {
       title: { required, minLength: minLength(3) },
@@ -1080,7 +1325,6 @@ export default {
       },
     },
   },
-
   methods: {
     /**
      * Toggle process tab
@@ -1090,20 +1334,17 @@ export default {
       this.filters[i].active = true;
       this.activeScreen = i;
     },
-
     /**
      * Typing
      */
     typing() {
       this.startedTyping = true;
     },
-
     //
     changeDays() {
       let l = this.days;
       this.event.schedules = [];
       // console.log(l);
-
       for (let i = 0; i < l; i++) {
         if (i > 0) {
           this.event.schedules.push({
@@ -1116,17 +1357,14 @@ export default {
         }
       }
     },
-
     /**
      * Next / back preview
      */
     goNextBack(type) {
       let num = parseInt(this.activeScreen);
-
       if (type === "next") {
         this.validateNext(num);
       }
-
       if (type === "back") {
         this.filters.map((v) => (v.active = false));
         let i = num != 0 ? num - 1 : 0;
@@ -1134,7 +1372,6 @@ export default {
         this.activeScreen = i;
       }
     },
-
     /**
      * Validate Next
      */
@@ -1147,7 +1384,6 @@ export default {
       // let arr3 = ['picture', 'email', 'phone'];
       let arr = [];
       let bask = [];
-
       // steps
       if (i === 1) {
         if (!this.event.isOnline) step1.push("venue", "country", "state");
@@ -1156,7 +1392,6 @@ export default {
           this.$v.event[v].$touch();
           if (this.$v.event[v].$error) bask.push(this.$v.event[v].$error);
         });
-
         let sch = ["date", "start"];
         let vsch = this.$v.event.schedules;
         this.event.schedules.map((v, i) => {
@@ -1167,11 +1402,9 @@ export default {
           });
         });
       }
-
       if (i === 2) {
         let vpays = this.$v.event.payments;
         let pays = this.event.payments;
-
         if (this.event.isPaid) step2.push("category", "price");
         pays.map((v, i) => {
           step2.map((n) => {
@@ -1199,7 +1432,6 @@ export default {
         if (this.$v.event.contact.phone.$error)
           bask.push(this.$v.event.contact.phone.$error);
       }
-
       console.log(bask);
       if (bask.length === 0) {
         this.hasError = false;
@@ -1210,7 +1442,6 @@ export default {
         this.validateError();
       }
     },
-
     /**
      * Validate error
      */
@@ -1220,7 +1451,6 @@ export default {
         this.hasError = false;
       }, 10000);
     },
-
     /**
      * Validate Check All
      */
@@ -1231,18 +1461,15 @@ export default {
       // let arr3 = ['picture', 'email', 'phone'];
       let arr = [];
       let bask = [];
-
       if (!this.event.isOnline) step1.push("venue", "country", "state");
       arr = step1;
       arr.map((v) => {
         this.$v.event[v].$touch();
         if (this.$v.event[v].$error) bask.push(this.$v.event[v].$error);
       });
-
       // schedules
       let sch = ["date", "start"];
       let vsch = this.$v.event.schedules;
-
       this.event.schedules.map((v, i) => {
         sch.map((n) => {
           // console.log(n);
@@ -1251,11 +1478,9 @@ export default {
             bask.push(vsch.$each.$iter[i][n].$error);
         });
       });
-
       // payment
       let vpays = this.$v.event.payments;
       let pays = this.event.payments;
-
       if (this.event.isPaid) step2.push("category", "price");
       pays.map((v, i) => {
         step2.map((n) => {
@@ -1271,7 +1496,6 @@ export default {
           });
         }
       });
-
       this.$v.event.media.picture.$touch();
       this.$v.event.contact.email.$touch();
       this.$v.event.contact.phone.$touch();
@@ -1281,9 +1505,7 @@ export default {
         bask.push(this.$v.event.contact.email.$error);
       if (this.$v.event.contact.phone.$error)
         bask.push(this.$v.event.contact.phone.$error);
-
       console.log(bask);
-
       if (bask.length === 0) {
         this.hasError = false;
         return false;
@@ -1292,18 +1514,15 @@ export default {
         return true;
       }
     },
-
     /**
      * Updated currency
      */
     updateCurrency() {
       this.currency = this.event.currency;
     },
-
     notBeforeToday(date) {
       return date < new Date(new Date().setHours(0, 0, 0, 0));
     },
-
     /**
      * Add payment category
      */
@@ -1317,7 +1536,6 @@ export default {
         earlyBird: {},
       });
     },
-
     buildTickets(tickets) {
       let bask = [];
       tickets.map((v) => {
@@ -1325,10 +1543,8 @@ export default {
         v.sold = 0;
         bask.push(v);
       });
-
       return bask;
     },
-
     /**
      * Toggle Ticket Categories
      */
@@ -1344,34 +1560,28 @@ export default {
           earlyBird: {},
         },
       ];
-
       let pl = this.paymentList[i];
       pl.active = true;
       this.event.isPaid = pl.type;
     },
-
     /**
      * Toggle location
      */
     toggleLocation(i) {
       this.locationList.map((v) => (v.active = false));
-
       let loc = this.locationList[i];
       loc.active = true;
       this.event.isOnline = loc.type;
     },
-
     /**
      * Toggle location
      */
     togglePrivate(i) {
       this.privateList.map((v) => (v.active = false));
-
       let pri = this.privateList[i];
       pri.active = true;
       this.event.isPublic = pri.type;
     },
-
     /**
      * Validate
      */
@@ -1379,7 +1589,6 @@ export default {
       let e = this.$v.event[type];
       return e.$each.$iter[i];
     },
-
     /**
      * On Submit
      * @return {[type]} [description]
@@ -1387,31 +1596,24 @@ export default {
     async submit() {
       let check = this.validateCheckAll();
       if (check) return;
-
       // Submit
       this.loading = true;
       let event = this.event;
-
       event.date = event.schedules[0].date;
       event.startTime = event.schedules[0].start;
       event.endTime = event.schedules[0].end;
       event.payments = this.buildTickets(event.payments);
-
       // event.percent = this.percentage;
-      //   event.owner = this.user._id;
-      //   event.team = this.user._id;
-
+      // event.owner = this.user._id;
+      // event.team = this.user._id;
       try {
         await this.$axios.$post("/events/create", event);
-
         this.status("Event created successfully!", "success");
         this.loading = false;
         this.startedTyping = false;
-
         this.$router.push({ name: "events" });
       } catch (error) {
         this.loading = false;
-
         if (error.hasOwnProperty("response")) {
           this.status(error.response.data.message, "error");
         } else {
@@ -1419,23 +1621,19 @@ export default {
         }
       }
     },
-
     /**
      * Status
      */
     status(message, status) {
       let notify = this.$snotify;
       console.log(notify);
-
       notify[status](message, "", {
         timeout: 3000,
         // showProgressBar: true,
       });
     },
-
     addEventDay() {
       let sch = this.event.schedules;
-
       sch.push({
         title: "",
         venue: "",
@@ -1444,12 +1642,10 @@ export default {
         end: "",
       });
     },
-
     removeEventDay(i) {
       let sch = this.event.schedules;
       if (sch.length > 1) sch.splice(i, 1);
     },
-
     buildVideoFromStr(str) {
       var url = str.trim(),
         iframe = "";
@@ -1469,17 +1665,14 @@ export default {
       }
       return iframe;
     },
-
     createVideo(type, id) {
       var src = "";
       if (type === "youtube") src = "//www.youtube.com/embed/" + id;
       if (type === "vimeo") src = "//player.vimeo.com/video/" + id;
-
       return `<iframe width="100%" height="100%" style="background: #000; border-radius: 10px;"
             src="https://${src}" frameborder="0" allow="accelerometer; autoplay;
             encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`;
     },
-
     autocompletePlaces() {
       let bar = document.getElementById("autocomplete");
       let autocomplete = new google.maps.places.Autocomplete(bar);
@@ -1492,7 +1685,6 @@ export default {
       });
     },
   },
-
   beforeRouteLeave(to, from, next) {
     if (!this.startedTyping) {
       next();
@@ -1527,20 +1719,17 @@ export default {
       }
     );
   },
-
   mounted() {
     this.moment = moment;
     // google.maps.event.addDomListener(window, 'load', this.autocompletePlaces);
     // this.autocompletePlaces();
   },
-
   components: {
     fileBox,
     videoUrl,
     loader,
     svgIcon,
     fieldErrors,
-    PrevSubmit,
   },
 };
 </script>

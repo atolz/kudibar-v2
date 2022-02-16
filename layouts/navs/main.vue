@@ -216,6 +216,7 @@ export default {
   data() {
     return {
       hasMessage: false,
+      // authenticated:false,
       navs: [
         {
           active: false,

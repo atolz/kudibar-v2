@@ -32,7 +32,11 @@ export default {
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["~/assets/scss/main.scss", "@/assets/css/icon-fonts.css"],
+  css: [
+    "~/assets/scss/main.scss",
+    "@/assets/css/icon-fonts.css",
+    // "@/assets/css/font-awesome.css",
+  ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -96,8 +100,8 @@ export default {
     "./plugins/helpers",
     // "./plugins/rave",
     // "./plugins/socket",
-    // "./plugins/validate",
-    // "./plugins/datepicker",
+    "./plugins/validate",
+    "./plugins/datepicker",
 
     // "@/plugins/notify",
     // "@/plugins/moment",
@@ -105,7 +109,7 @@ export default {
     // "@/plugins/number",
 
     // "~/plugins/vue-tooltip.js",
-    // { src: "@/plugins/vue-datepicker", mode: "client" },
+    { src: "@/plugins/vue-datepicker", mode: "client" },
     // { src: "@/plugins/qr-scanner", mode: "client" },
     // { src: "@plugins/ga.js", mode: "client" },
     // {

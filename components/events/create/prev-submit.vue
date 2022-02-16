@@ -57,6 +57,7 @@
       <!-- Description -->
       <section class="description">
         <div class="kudi-h4">Description</div>
+        <!-- <div class="title big dark">Description</div> -->
         <p class="body-default">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fames tortor
           enim nisl, cras risus magna arcu. Nibh nec ornare commodo fringilla et

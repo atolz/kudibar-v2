@@ -16,7 +16,7 @@
         </ul>
       </div>
 
-      <div class="col-12 col-md-8 col-lg-7" style="margin-bottom: 100px">
+      <div class="col-12 col-md-8 col-lg-7">
         <!-- basic info -->
         <div class="hide" :class="{ show: filters[0].active }">
           <!-- Basic info starts here -->
@@ -314,7 +314,7 @@
 
             <div class="">
               <a href="#" @click.prevent="addEventDay" class="title dark mid">
-                Add another day+
+                Add another day
                 <i class="fa fa-plus"></i>
               </a>
               <div class="s-30"></div>
@@ -446,8 +446,7 @@
                       }"
                     >
                       <span class="ta-title">Price</span>
-
-                      <input
+                      <vue-numeric
                         class="mx-input"
                         separator=","
                         v-model.number="pay.price"
@@ -455,7 +454,7 @@
                         @input="
                           validate('payments', i).price.$model = pay.price
                         "
-                      />
+                      ></vue-numeric>
 
                       <span class="cu">
                         {{ $helper.currency(event.currency) }}
@@ -896,7 +895,6 @@ import loader from "@/components/util/loader";
 import svgIcon from "@/components/util/svg-loader";
 import fieldErrors from "@/components/input/validation";
 import moment from "moment";
-
 import PrevSubmit from "@/components/events/create/prev-submit.vue";
 
 import {

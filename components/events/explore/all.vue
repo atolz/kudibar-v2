@@ -275,7 +275,7 @@ div.my-profile {
   border-radius: 8px;
   overflow: hidden;
   box-shadow: var(--kudi-shadow-default);
-  max-width: 400px;
+  max-width: 360px;
 
   .icon-Dot {
     margin: 0 9px;
@@ -335,6 +335,10 @@ div.my-profile {
       position: absolute;
       top: 35px;
       padding: 0 32px;
+      @media (max-width: 560px) {
+        top: 21px;
+        padding: 0 17px;
+      }
       display: flex;
       // right: 24px;
       // margin-left: auto;
