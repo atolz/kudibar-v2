@@ -45,35 +45,90 @@
     </modal>
 
     <div class="row back align-items-center py-4 mb-3">
-      <div class="col">
+      <div class="col d-flex align-items-center">
         <button class="back__btn">
           <i class="icon-arrow-spear-left"></i>
         </button>
-        <span class="back__text">Back</span>
+        <span class="back__text"
+          ><h3 class="kudi-h3 mb-0" style="margin-bottom: 0px">
+            Block Party Vol. 2
+          </h3></span
+        >
       </div>
     </div>
 
-    <div class="row info">
+    <div class="row info align-items-center">
       <div class="col-6">
-        <h3 class="kudi-h3" @click="toggleActive">Block Party Vol. 2</h3>
         <span>20 January, 2022</span>
       </div>
       <div class="col-6 d-flex align-items-center justify-content-end">
         <div class="row">
           <div class="col-md-6 justify-content-end">
             <div style="cursor: default">
-              <svg
+              <!-- <svg
                 class="svg-icon"
                 style="width: 24px; height: 24px; margin-right: 6px"
               >
                 <use xlink:href="/images/sprite.svg#icon-Love"></use>
+              </svg> -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                style="
+                  width: 27px;
+                  height: 27px;
+                  margin-right: 5px;
+                  color: #023e4f;
+                  stroke-width: 3px;
+                "
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
+                />
               </svg>
+              <!-- <svg
+                class="svg-icon"
+                style="
+                  width: 20px;
+                  height: 24px;
+                  margin-right: 6px;
+                  color: #023e4f;
+                "
+              >
+                <use xlink:href="/images/sprite.svg#icon-love-card"></use>
+              </svg> -->
               <span>120k</span>
             </div>
           </div>
           <div class="col-md-6 justify-content-end">
             <div style="cursor: pointer">
-              <i class="icon-Share"></i>
+              <!-- <i class="icon-Share" style="color: #023e4f"></i> -->
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                style="
+                  width: 27px;
+                  height: 24px;
+                  margin-right: 5px;
+                  color: #023e4f;
+                "
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
+                />
+              </svg>
               <span>Share</span>
             </div>
           </div>
@@ -96,7 +151,22 @@
                 <img src="/images/play-circle.svg" alt="" />
               </button>
               <button class="glass">
-                <img src="/images/search-plus.svg" alt="" />
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-6 w-6"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  style="width: 27px; height: 24px; color: white"
+                >
+                  <!-- transform: scale(-1, 1) -->
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                  />
+                </svg>
               </button>
             </div>
           </div>
@@ -201,7 +271,7 @@
                 <div class="regular">
                   <div class="type">
                     <p>Regular</p>
-                    <span>N4000</span>
+                    <span class="strike">N4000</span>
                     <span>N3500</span>
                   </div>
                   <div class="amount">
@@ -343,7 +413,7 @@
 
 <script>
 import IncDec from "@/components/events/inc-dec.vue";
-// import AnalytictBox from "@/components/events/AnalyticsBox.vue";
+import AnalytictBox from "@/components/events/AnalyticsBox.vue";
 import modal from "@/components/util/modal";
 export default {
   data() {
@@ -365,7 +435,7 @@ export default {
   },
   components: {
     IncDec,
-    // AnalytictBox,
+    AnalytictBox,
     modal,
   },
 };
@@ -629,7 +699,10 @@ export default {
     div {
       display: flex;
       // flex-wrap: wrap;
-      justify-content: center;
+      justify-content: end;
+      @media (max-width: 770px) {
+        justify-content: center;
+      }
     }
     button {
       margin-left: 24px;

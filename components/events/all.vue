@@ -1,6 +1,6 @@
 <template>
   <div class="events">
-    <div class="row mx-2">
+    <div class="row mx-2 gy-5">
       <div class="col-sm-4" v-for="(event, i) in events" :key="i">
         <div class="my-profile">
           <img src="/images/faces/avatar.jpg" alt="" />

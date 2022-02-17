@@ -9,6 +9,22 @@
     display: none;
   }
 }
+//Miror
+.mirror {
+  transform: scale(-1, 1);
+}
+
+//Cursor Pointer
+.pointer {
+  cursor: pointer;
+}
+
+//Strike through
+.strike {
+  text-decoration: line-through;
+  text-decoration-color: red;
+  text-decoration-thickness: 1.5px;
+}
 // Page
 .p-layer {
   margin: 2.5rem 0;

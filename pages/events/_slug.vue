@@ -43,9 +43,7 @@
         <button class="back__btn">
           <i class="icon-arrow-spear-left"></i>
         </button>
-        <h3 class="my-title ms-3" style="display: inline">
-          Spirit lead me
-        </h3>
+        <h3 class="my-title ms-3" style="display: inline">Spirit lead me</h3>
         <!-- <span class="back__text">Back</span> -->
       </div>
     </div>
@@ -114,7 +112,7 @@
             >
               <div class="statBox__total d-flex align-items-center">
                 <div class="circular-progress">
-                  <CircularProgress size="8.5px" value="60" />
+                  <CircularProgress size="60px" value="60" />
                 </div>
                 <h4>Total Tickets - 50</h4>
                 <p class="ms-auto">Sold - N0</p>
@@ -184,9 +182,9 @@
             <AnalyticsBox title="Reviews & Ratings" icon="icon-Star-outline">
               <div
                 class="d-flex justify-content-center align-items-center"
-                style="margin: 20px 0px 38px"
+                style="margin: 20px 0px 30px"
               >
-                <CircularProgress size="24px" value="0" />
+                <CircularProgress value="60" size="120px" />
               </div>
               <div
                 class="
