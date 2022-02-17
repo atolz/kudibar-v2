@@ -23,7 +23,9 @@
         <div v-if="filters[1].active"><Schedule /></div>
         <div v-if="filters[2].active"><Payments /></div>
         <div v-if="filters[3].active"><Partners /></div>
-        <div v-if="filters[4].active"><Media /></div>
+        <div v-if="filters[4].active">
+          <media :event="{}" />
+        </div>
         <div v-if="filters[6].active"><RSVP /></div>
         <div v-if="filters[7].active"><Referal /></div>
         <div v-if="filters[8].active"><Speakers /></div>
@@ -41,7 +43,10 @@
         <button class="back__btn">
           <i class="icon-arrow-spear-left"></i>
         </button>
-        <span class="back__text">Back</span>
+        <h3 class="my-title ms-3" style="display: inline">
+          Spirit lead me
+        </h3>
+        <!-- <span class="back__text">Back</span> -->
       </div>
     </div>
     <!-- Pills nav -->
@@ -68,16 +73,15 @@
     </nav>
 
     <!-- publish and unpublish -->
-    <div class="d-flex flex-wrap align-items-center">
-      <p class="my-title">Spirit lead me</p>
-      <span class="my-badge ml-auto">Public event</span>
-
-      <div class="pub shadow-sm">
+    <div class="d-flex justify-content-start align-items-center">
+      <div class="pub shadow-sm m-0">
         <span>Publish and Unpublish</span>
         <div class="form-check form-switch float-end">
           <input class="form-check-input" type="checkbox" />
         </div>
       </div>
+
+      <div class="my-badge ml-auto ms-2">Public event</div>
     </div>
 
     <!-- stat card -->
@@ -351,7 +355,7 @@ import Description from "@/components/events/slug/Description.vue";
 import Schedule from "@/components/events/slug/Schedule.vue";
 import Payments from "@/components/events/slug/Payments.vue";
 import RSVP from "@/components/events/slug/RSVP.vue";
-import Media from "@/components/events/slug/Media.vue";
+import Media from "@/components/events/edit/media.vue";
 import Referal from "@/components/events/slug/Referal.vue";
 import Speakers from "@/components/events/slug/Speakers.vue";
 import Settings from "@/components/events/slug/Settings.vue";
@@ -359,7 +363,7 @@ import Partners from "@/components/events/slug/Partners.vue";
 import Team from "@/components/events/slug/Team.vue";
 
 export default {
-  layout: "dashboard",
+  // layout: "dashboard",
   head() {
     return {
       title: "Kudibar | Event Analytics ",

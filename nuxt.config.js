@@ -93,6 +93,12 @@ export default {
         // token: { property: "false" }
       },
     },
+    redirect: {
+      login: "/signin",
+      logout: "/",
+      user: "/profile",
+      home: false,
+    },
   },
 
   plugins: [
@@ -101,7 +107,7 @@ export default {
     // "./plugins/rave",
     // "./plugins/socket",
     "./plugins/validate",
-    "./plugins/datepicker",
+    // "./plugins/datepicker",
 
     // "@/plugins/notify",
     // "@/plugins/moment",

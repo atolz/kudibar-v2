@@ -28,7 +28,7 @@
       </div> -->
 
       <!-- Authenticated- Scan button -->
-      <span class="d-flex d-lg-none" v-if="authenticated">
+      <span class="d-flex d-lg-none" v-if="$auth.loggedIn">
         <nuxt-link to="/scan" class="fs-18">
           <i class="fas fa-qrcode"></i>
         </nuxt-link>
@@ -52,7 +52,7 @@
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <!-- left unauthenticated  -->
-        <ul class="navbar-nav me-auto text-primary" v-if="!authenticated">
+        <ul class="navbar-nav me-auto text-primary" v-if="!$auth.loggedIn">
           <li class="nav-item">
             <nuxt-link class="nav-link" to="/explore">Explore</nuxt-link>
           </li>
@@ -65,7 +65,7 @@
         </ul>
 
         <!-- right unauthenticated -->
-        <ul class="navbar-nav" v-if="!authenticated">
+        <ul class="navbar-nav" v-if="!$auth.loggedIn">
           <!-- Sign In -->
           <li class="nav-item me-lg-4">
             <nuxt-link class="nav-link fw-bold" to="/signin">
@@ -98,7 +98,7 @@
         <!-- right authenticated -->
         <ul
           class="d-none d-lg-flex navbar-nav align-items-center"
-          v-if="authenticated"
+          v-if="$auth.loggedIn"
         >
           <!-- Scan QRcode button  -->
           <li class="nav-item me-3 me-md-4">
@@ -306,7 +306,7 @@ export default {
     },
 
     checkMessages() {
-      if (this.authenticated) {
+      if (this.$auth.loggedIn) {
         let id = this.user._id;
 
         setInterval((_) => {

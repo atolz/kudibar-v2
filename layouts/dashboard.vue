@@ -7,7 +7,7 @@
     <!-- <nuxt class="pt-lg-4 pb-5" style="padding-top: 90px;" /> -->
     <nuxt />
 
-    <mobile-nav v-if="authenticated" />
+    <mobile-nav v-if="$auth.loggedIn" />
 
     <vue-snotify></vue-snotify>
   </div>
@@ -19,7 +19,7 @@ import mainNav from "@/layouts/navs/main";
 // import subNav from "@/layouts/navs/sub";
 
 export default {
-  //  middleware: "auth",
+   middleware: "auth",
 
   // data() {
   //    return {

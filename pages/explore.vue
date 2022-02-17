@@ -1,7 +1,5 @@
 <template>
   <div>
-    <!-- Web Slider -->
-    <slider-web />
 
     <main class="my-container">
       <!-- Mobile Slider -->
@@ -58,9 +56,8 @@
 </template>
 
 <script>
-import eventsBox from "@/components/events/explore/all";
+import eventsBox from "@/components/events/all";
 import sliderMobile from "@/components/events/explore/slider-mobile";
-import sliderWeb from "@/components/events/explore/slider-web";
 
 export default {
   data() {
@@ -111,8 +108,7 @@ export default {
   },
   components: {
     eventsBox,
-    sliderMobile,
-    sliderWeb,
+    sliderMobile
   },
 };
 </script>

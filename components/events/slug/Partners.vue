@@ -1,77 +1,100 @@
 <template>
-  <div class="form">
-    <div class="row">
-      <label for="event title" class="kudi-label">Event title</label>
-      <input
-        id="event title"
-        type="text"
-        class="kudi-input"
-        placeholder="Title"
-      />
-    </div>
-    <div class="partners">
-      <div class="partners__box row">
-        <div class="col-md-6">
-          <div class="partners__card">
-            <div class="partners__card__body">
-              <svg class="svg-icon icon-Cancle" style="cursor: pointer">
-                <use xlink:href="/images/sprite.svg#icon-Cancle"></use>
-              </svg>
-              <i class="icon-image-thumbnail"></i>
-              <label for="file">Click to add partner logo</label>
-              <input type="file" class="d-none" id="file" />
-              <span>700px by 1500px JPEG or PNG</span>
-            </div>
-            <div class="partners__card__footer">
-              <input type="text" placeholder="Type Partner Name" />
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="partners__card">
-            <div class="partners__card__body">
-              <svg class="svg-icon icon-Cancle" style="cursor: pointer">
-                <use xlink:href="/images/sprite.svg#icon-Cancle"></use>
-              </svg>
-              <i class="icon-image-thumbnail"></i>
-              <label for="file">Click to add partner logo</label>
-              <input type="file" class="d-none" id="file" />
-              <span>700px by 1500px JPEG or PNG</span>
-            </div>
-            <div class="partners__card__footer">
-              <input type="text" placeholder="Type Partner Name" />
+  <div>
+    <div class="form" v-for="(pat, i) in partners" :key="i">
+      <div class="row">
+        <label for="event title" class="kudi-label">Event title</label>
+        <input
+          id="event title"
+          type="text"
+          class="kudi-input"
+          placeholder="Title"
+        />
+      </div>
+      <div class="partners">
+        <div class="partners__box row">
+          <div class="col-md-6" v-for="(p, i) in pat.data" :key="i">
+            <div class="partners__card">
+              <div class="partners__card__body">
+                <svg class="svg-icon icon-Cancle" style="cursor: pointer">
+                  <use xlink:href="/images/sprite.svg#icon-Cancle"></use>
+                </svg>
+                <i class="icon-image-thumbnail"></i>
+                <label for="file">Click to add partner logo</label>
+                <input type="file" class="d-none" id="file" />
+                <span>700px by 1500px JPEG or PNG</span>
+              </div>
+              <div class="partners__card__footer">
+                <input type="text" placeholder="Type Partner Name" />
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="col-md-6">
-          <div class="partners__addBox">
-            <div><i>+</i> <span>Add Partners</span></div>
+          <div class="col-md-6">
+            <div class="partners__addBox" @click="addInnerPartner(i)">
+              <div><i>+</i> <span>Add Partners</span></div>
+            </div>
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="d-flex align-items-center py-4 pb-2 border-top mt-5">
-      <p
-        class="kudi-body-1 fw-bold mb-0 font-cario d-inline-flex"
-        style="margin-bottom: 0"
-      >
-        Add partner category +
-      </p>
-      <button class="kbtn-1 kbtn-2 ms-auto">Update</button>
+      <div class="d-flex align-items-center py-4 pb-2 border-top mt-5">
+        <a href="#" @click.prevent="addPartner"
+          class="kudi-body-1 fw-bold mb-0 font-cario d-inline-flex"
+          style="margin-bottom: 0"
+        >
+          Add partner category +
+        </a>
+        <button class="kbtn-1 kbtn-2 ms-auto">Update</button>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data(){
+    return {
+      partners: [
+        {
+          category: "",
+          data: [
+            { name: "", logo: "" }
+          ]
+        },
+        {
+          category: "",
+          data: [
+            { name: "", logo: "" }
+          ]
+        }
+      ]
+    }
+  },
+
+  methods: {
+    addPartner(){
+      this.partners.push({
+          category: "",
+          data: [
+            { name: "", logo: "" }
+          ]
+      });
+
+      console.log(this.partners.length)
+    },
+
+    addInnerPartner(i){
+      this.partners[i].data.push({ name: "", logo: "" });
+
+      console.log(this.partners.length)
+    }
+  }
+};
 </script>
 
 <style scoped lang="scss">
 .partners {
   &__box {
-    background: #f8fbff;
     border-radius: 8px;
     width: 100%;
     height: 412px;
@@ -90,7 +113,8 @@ export default {};
     min-width: 281px;
     width: 100%;
     border-radius: 8px;
-    margin-bottom: 22px;
+    box-shadow: 0 3px 21px 0 rgb(0 0 0 / 7%);
+
     &__body {
       background: #f0f3f5;
       display: grid;
@@ -154,17 +178,13 @@ export default {};
   }
 
   &__addBox {
-    height: 193px;
     width: 100%;
     color: #023e4f;
     font-family: Cairo;
     font-size: 16px;
     font-style: normal;
     font-weight: 700;
-    line-height: 19px;
-    letter-spacing: 0em;
     text-align: left;
-    display: grid;
     justify-content: center;
     align-content: center;
 

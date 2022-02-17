@@ -151,6 +151,7 @@
 <script>
 import modal from "@/components/util/modal";
 export default {
+  layout: "dashboard",
   data() {
     return {
       modalActive: false,

@@ -8,10 +8,10 @@
 
     <nuxt />
 
-    <!-- <mobile-nav v-if="authenticated" /> -->
+    <!-- <mobile-nav v-if="$auth.loggedIn" /> -->
 
     <!-- footer -->
-    <footer-nav v-if="!authenticated" />
+    <footer-nav v-if="!$auth.loggedIn" />
 
     <vue-snotify></vue-snotify>
   </div>

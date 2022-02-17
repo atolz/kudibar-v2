@@ -1,5 +1,5 @@
 
-   
+
 <template>
   <div class="container my-5">
     <section>
@@ -228,6 +228,7 @@
 
 <script>
 export default {
+  layout: "dashboard",
   head() {
     return {
       title: "Subscribers",

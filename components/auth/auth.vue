@@ -26,14 +26,16 @@
             <div class="mb-3">
                <a href="#facebook" class="kbtn stroke fb" @click.prevent="socialLogin('facebook')">
                   <!-- <svg-icon icon="facebook" /> -->
-                  <i class="fab fa-facebook-f icon"></i>
+                  <!-- <i class="fab fa-facebook-f icon"></i> -->
+                  <img class="pe-3" src="/images/images/home/fb.svg" alt="" />
                   <span>{{ authScreen }} with Facebook</span>
                </a>
             </div>
 
             <div class="mb-3">
                <a href="#google" class="kbtn stroke gg" @click.prevent="socialLogin('google')">
-                  <svg-icon icon="google" />
+                  <!-- <svg-icon icon="google" /> -->
+                  <img class="pe-3" src="/images/images/home/google.svg" alt="" />
                   <span>{{ authScreen }} with Google</span>
                </a>
             </div>
@@ -87,8 +89,8 @@
 <script>
 import axios from 'axios';
 
-// import register from './register';
-// import login from './login';
+import register from './register';
+import login from './login';
 // import svgIcon from '@/components/util/svg-loader';
 // import loader from '@/components/util/loader';
 
@@ -125,7 +127,8 @@ export default {
       },
 
       authScreen(){
-         return !this.isLogin ? 'Sign Up' : 'Sign in';
+        //  return !this.isLogin ? 'Sign Up' : 'Sign in';
+        return "Continue";
       }
    },
 
@@ -218,13 +221,13 @@ export default {
 
             // store or authenticate user
             this.checkAuth(res.data);
-            this.$store.commit('page/setAuthData', {
-               firstname: res.data.given_name,
-               lastname:  res.data.family_name,
-               email:  res.data.email,
-               avatar: res.data.picture,
-               phone: ''
-            });
+            // this.$store.commit('page/setAuthData', {
+            //    firstname: res.data.given_name,
+            //    lastname:  res.data.family_name,
+            //    email:  res.data.email,
+            //    avatar: res.data.picture,
+            //    phone: ''
+            // });
          }catch(e){
             this.processing = false;
             console.log(e);
@@ -267,13 +270,13 @@ export default {
             let res = await axios.get(url);
 
             this.checkAuth(res.data);
-            this.$store.commit('page/setAuthData', {
-               firstname: res.data.first_name,
-               lastname:  res.data.last_name,
-               email:  res.data.email,
-               avatar: res.data.picture.data.url,
-               phone: ''
-            });
+            // this.$store.commit('page/setAuthData', {
+            //    firstname: res.data.first_name,
+            //    lastname:  res.data.last_name,
+            //    email:  res.data.email,
+            //    avatar: res.data.picture.data.url,
+            //    phone: ''
+            // });
 
          }catch(e){
          this.processing = false;
@@ -380,8 +383,8 @@ export default {
    },
 
    components: {
-      // register,
-      // login,
+      register,
+      login,
       // svgIcon,
       // loader
    },

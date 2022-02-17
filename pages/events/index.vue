@@ -37,7 +37,11 @@
         </div>
         <div class="my-card__body" :style="{ '--tag-color': '#1EAE07' }">
           <div>
-            <h4 class="kudi-h4">Music Jam Festival</h4>
+            <h4 class="kudi-h4">
+              <nuxt-link to="/events/sddjdjfd">
+                Who is in the house block party
+              </nuxt-link>
+            </h4>
             <kudi-label
               :text="'Approved'"
               :color="'#023E4F'"
@@ -69,7 +73,11 @@
         </div>
         <div class="my-card__body" :style="{ '--tag-color': '#F08800' }">
           <div>
-            <h4 class="kudi-h4">Music Jam Festival</h4>
+            <h4 class="kudi-h4">
+              <nuxt-link to="/events/sddjdjfd">
+                TEchno dancing Festival
+              </nuxt-link>
+            </h4>
             <kudi-label
               :text="'Approved'"
               :color="'#F08800'"
@@ -101,7 +109,11 @@
         </div>
         <div class="my-card__body" :style="{ '--tag-color': '#C11E1E' }">
           <div>
-            <h4 class="kudi-h4">Music Jam Festival</h4>
+            <h4 class="kudi-h4">
+              <nuxt-link to="/events/sddjdjfd">
+                Music Jam Festival
+              </nuxt-link>
+            </h4>
             <kudi-label
               :text="'Approved'"
               :color="'#C11E1E'"
@@ -125,6 +137,7 @@
 import kudiLabel from "@/components/events/label.vue";
 // import Tickets from "@/components/events/Tickets.vue";
 export default {
+  // layout: "dashboard",
   components: {
     kudiLabel,
     // Tickets,
@@ -253,11 +266,6 @@ export default {
       grid-auto-flow: column;
       align-content: center;
       align-items: center;
-
-      span.dot {
-        // margin: 0 20px;
-        // font-size: 10px;
-      }
     }
   }
 }

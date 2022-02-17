@@ -165,22 +165,15 @@ export default {
             this.form.eventQuery = qry;
 
             let res = await this.$auth.loginWith("local", { data: this.form });
-            let data = res.data.data;
-
-            this.$store.commit("add", data.user);
-            this.$store.commit("login", true);
 
             this.status("Login successful", "success");
 
-            // // redirect
-            setTimeout(_ => {
-               // this.$router.back();
-               let query = this.$route.query ? this.$route.query : "";
-               let url = this.returnUrl();
-               console.log(url);
+            // Redirect
+            let query = this.$route.query ? this.$route.query : "";
+            let url = this.returnUrl();
+            console.log(url);
 
-               this.$router.push({ name: url, query });
-            }, 1000);
+            this.$router.push({ name: url, query });
          } catch (error) {
             this.isLoading = false;
             let dd = this.$helper.errorBag(error);
@@ -199,12 +192,12 @@ export default {
        */
       status(message, status) {
          console.log(message);
-         let notify = this.$snotify;
+        //  let notify = this.$snotify;
 
-         notify[status](message, "", {
-            timeout: 3000,
-            showProgressBar: false
-         });
+        //  notify[status](message, "", {
+        //     timeout: 3000,
+        //     showProgressBar: false
+        //  });
       },
 
       /**
