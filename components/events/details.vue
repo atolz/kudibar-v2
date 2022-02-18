@@ -6,40 +6,45 @@
       @on-close="modalClose"
     >
       <div class="details" style="max-width: 450px">
-        <h4>Music Festival Jam Africa Concert</h4>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id tristique
-          nunc lectus eget sagittis, risus mi orci. Nulla cursus sociis
-          suspendisse eu nunc blandit sed sed. Pellentesque justo elementum in
-          pretium nunc eget dolor.
-        </p>
-        <div class="d-flex justify-content-between details__host">
-          <div class="">Hosted By - Arthur Ibik</div>
-          <div class="">Monday June 12, 2021</div>
+        <h4 class="kudi-h4">Music Festival Jam Africa Concert</h4>
+        <p>Hosted By - Arthur Ibik</p>
+        <div class="details__box">
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="">Regular</span>
+            <span class="d-flex align-items-center"
+              ><i
+                data-v-f3ab142c=""
+                class="icon-Ticket"
+                style="color: rgb(240, 136, 0); font-size: 20px"
+              ></i
+              ><span class="ms-3 mb-0" style="margin-bottom: 0px"
+                >Regular</span
+              ></span
+            >
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id
+            tristique nunc lectus eget sagittis, risus mi orci.
+          </p>
         </div>
-
-        <div class="details__ticketNum">
-          <p>Number of Tickets</p>
-          <div>
-            <i class="icon-Ticket"></i>
-            <span>Regular x1</span>
+        <div class="details__box">
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="">VIP</span>
+            <span class="d-flex align-items-center"
+              ><i
+                data-v-f3ab142c=""
+                class="icon-Ticket"
+                style="color: rgb(240, 136, 0); font-size: 20px"
+              ></i
+              ><span class="ms-3 mb-0" style="margin-bottom: 0px"
+                >VIP - 24 left</span
+              ></span
+            >
           </div>
-          <div>
-            <i class="icon-Ticket"></i>
-            <span>VIP x1</span>
-          </div>
-          <div>
-            <i class="icon-Ticket"></i>
-            <span>VVIP x1</span>
-          </div>
-        </div>
-
-        <div class="details__qr">
-          <img src="/images/qrcode.jpg" alt="scan qrcode" />
-          <div>
-            <span>Ticket Ref.</span>
-            <span>123eFG</span>
-          </div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id
+            tristique nunc lectus eget sagittis, risus mi orci.
+          </p>
         </div>
       </div>
     </modal>
@@ -530,6 +535,48 @@ export default {
     background: #f0f3f5;
     &:not(:last-child) {
       margin-right: 32px;
+    }
+  }
+}
+
+.details {
+  p {
+    color: #023e4f;
+    font-family: Cairo;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+
+  &__box {
+    background: #f0f3f5;
+    border-radius: 8px;
+    padding: 16px 24px;
+    margin-bottom: 13px;
+    span {
+      font-family: Cairo;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 19px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #023e4f;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: #8990a4;
+      font-family: Segoe UI;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0em;
+      text-align: left;
     }
   }
 }

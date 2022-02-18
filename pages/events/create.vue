@@ -721,6 +721,8 @@
                 v-model="event.media.picture"
                 size="700px by 1500px"
                 type="picture"
+                :folder="`accounts/${user._id}/media`"
+                :fetch_id="user._id"
                 :insert="true"
                 @keyup="$v.event.$touch()"
               />
@@ -918,6 +920,9 @@ export default {
 
   data() {
     return {
+      user: {
+        id: "123",
+      },
       days: 1,
       moment: {},
       loading: false,

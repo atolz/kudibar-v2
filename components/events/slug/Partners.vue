@@ -123,7 +123,7 @@ export default {
     border-radius: 8px;
     width: 100%;
     max-height: 412px;
-    padding: 15px 0;
+    padding: 15px 10px;
     // padding: 25px 30px 0px;
     overflow: scroll;
     &::-webkit-scrollbar-thumb {

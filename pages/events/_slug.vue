@@ -112,7 +112,12 @@
             >
               <div class="statBox__total d-flex align-items-center">
                 <div class="circular-progress">
-                  <CircularProgress size="60px" value="60" />
+                  <CircularProgress
+                    size="60px"
+                    value="60"
+                    type="percent"
+                    color="#F08800"
+                  />
                 </div>
                 <h4>Total Tickets - 50</h4>
                 <p class="ms-auto">Sold - N0</p>
@@ -184,7 +189,11 @@
                 class="d-flex justify-content-center align-items-center"
                 style="margin: 20px 0px 30px"
               >
-                <CircularProgress value="60" size="120px" />
+                <CircularProgress
+                  value="0"
+                  size="120px"
+                  color="rgb(1, 120, 154)"
+                />
               </div>
               <div
                 class="
@@ -600,8 +609,8 @@ export default {
   &__starRatings {
     padding-left: 24px;
 
-    .icon-Star-filled:last-child {
-      margin-right: auto;
+    .icon-Star-filled {
+      margin-right: 2.5px;
     }
   }
 

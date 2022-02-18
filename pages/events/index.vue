@@ -1,18 +1,16 @@
 <template>
   <div class="container">
-    <div class="row back align-items-center py-4 mb-3">
+    <div class="row back align-items-center py-4 mb-3 mt-3">
       <div class="col d-flex">
         <button class="back__btn">
           <i class="icon-arrow-spear-left"></i>
         </button>
-        <span class="back__text">Back</span>
+        <h3 class="kudi-h3 mb-0 ms-3">Created Events</h3>
         <!-- <button class="kbtn-1 ms-auto">
           <span>Created Events</span>
         </button> -->
       </div>
     </div>
-
-    <div class="kudi-h3 mb-5">Created Events</div>
 
     <div class="my-card__container">
       <div class="my-card">
@@ -20,8 +18,11 @@
           <div class="img-blur"></div>
           <img src="/images/party-girls.png" alt="event picture" />
           <div class="my-card__btnContainer">
-            <button class="my-card__btn my-card__btn--share">
-              <i class="icon-Share"></i><span>700k</span>
+            <!-- <button class="my-card__btn my-card__btn--share">
+              <i class="icon-Share"></i>
+            </button> -->
+            <button class="my-card__btn my-card__btn--info">
+              <i class="icon-Share"></i>
             </button>
             <button class="my-card__btn my-card__btn--like">
               <!-- <i class="icon-Share"></i> -->
@@ -110,9 +111,7 @@
         <div class="my-card__body" :style="{ '--tag-color': '#C11E1E' }">
           <div>
             <h4 class="kudi-h4">
-              <nuxt-link to="/events/sddjdjfd">
-                Music Jam Festival
-              </nuxt-link>
+              <nuxt-link to="/events/sddjdjfd"> Music Jam Festival </nuxt-link>
             </h4>
             <kudi-label
               :text="'Approved'"
