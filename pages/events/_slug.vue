@@ -1,7 +1,7 @@
 
 
 <template>
-  <div class="container px-md-2 px-xl-5 pb-5">
+  <div class="container px-md-2 px-xl-0 pb-5">
     <!-- <div
     class=""
     style="
