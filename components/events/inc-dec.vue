@@ -42,7 +42,7 @@ export default {
   align-items: center;
   justify-content: center;
   font-family: Roboto;
-  font-size: 14px;
+  font-size: 21px;
   font-style: normal;
   font-weight: 400;
   line-height: 19px;
@@ -61,7 +61,8 @@ export default {
   }
 
   .decrement {
-    font-size: 29px;
+    font-size: 48px;
+    margin-top: -4px;
     width: 30px;
   }
 }

@@ -1,5 +1,5 @@
 <template>
-  <div class="container" :style="{ '--value': value, '--size': size }">
+  <div class="container" :style="{ '--value': 100 - value, '--size': size }">
     <h1>{{ value }}%</h1>
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 36">
       <circle cx="16" cy="16" r="15.9155" class="progress-bar__background" />
@@ -21,7 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-$progress-bar-stroke-width: 2.5;
+$progress-bar-stroke-width: 1.8;
 $progress-bar-size: 120px;
 
 svg {
@@ -42,11 +42,12 @@ svg {
   stroke: rgb(1, 120, 154);
   stroke-dasharray: 100;
   stroke-dashoffset: calc(100 - var(--value));
+  stroke-dashoffset: var(--value);
   animation-fill-mode: forwards;
   stroke-linecap: round;
   stroke-width: $progress-bar-stroke-width;
   transition: stroke-dashoffset 1s ease-in-out;
-  animation: circle 2s linear;
+  animation: circle 1s linear;
 }
 
 .container {

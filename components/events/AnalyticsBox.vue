@@ -37,6 +37,17 @@ export default {
     }
   }
 
+  // &__body > * {
+  //   margin: 0 30px;
+  //   @media (max-width: 400px) {
+  //     padding: 0 20px;
+  //   }
+  // }
+
+  .rrBox__footer {
+    padding: 0px !important;
+  }
+
   &__head {
     // height: 60px;
     padding-bottom: 14px;
