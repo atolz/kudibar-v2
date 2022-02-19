@@ -4,7 +4,7 @@
       <div class="container">
         <div class="row row-cols-1 row-cols-sm-2">
           <!-- about -->
-          <div class="col">
+          <div class="col-md-6">
             <nuxt-link to="/">
               <picture>
                 <source type="image/webp" srcset="/images/logo.webp" />
@@ -18,8 +18,9 @@
               movies.
             </div>
           </div>
+
           <!-- links -->
-          <div class="col my-col order-last">
+          <div class="col-md-6 order-last">
             <div
               class="row row-cols-2 row-cols-xl-3 gy-5 justify-content-between"
             >
@@ -188,6 +189,11 @@ export default {};
   display: grid;
   align-content: start;
   justify-content: end;
+  // text-align: right;
+
+  h4 {
+    // text-align: right !important;
+  }
 
   @media (max-width: 681px) {
     align-content: start;
