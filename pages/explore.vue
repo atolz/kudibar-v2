@@ -64,15 +64,15 @@ export default {
     return {
       filters: [
         {
-          title: "Description",
+          title: "All",
           active: true,
         },
         {
-          title: "Schedules",
+          title: "Happening",
           active: false,
         },
         {
-          title: "Payments",
+          title: "New",
           active: false,
         },
         {
@@ -81,26 +81,6 @@ export default {
         },
         {
           title: "Media",
-          active: false,
-        },
-        {
-          title: "Payment Voucher",
-          active: false,
-        },
-        {
-          title: "Contacts",
-          active: false,
-        },
-        {
-          title: "Refferal Link",
-          active: false,
-        },
-        {
-          title: "Speakers",
-          active: false,
-        },
-        {
-          title: "Team Members",
           active: false,
         },
       ],

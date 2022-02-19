@@ -104,10 +104,10 @@
 </template>
 
 <script>
-// import loader from "@/components/util/loader";
-// import forgot from "@/components/auth/forgot";
-// import fieldErrors from "@/components/input/validation";
-// import svgIcon from "@/components/util/svg-loader";
+import loader from "@/components/util/loader";
+import forgot from "@/components/auth/forgot";
+import validation from "@/components/input/validation";
+import svgIcon from "@/components/util/svg-loader";
 import { required, minLength } from "vuelidate/lib/validators";
 
 const api = process.env.API_URL;
@@ -229,10 +229,10 @@ export default {
    },
 
    components: {
-      // loader,
-      // forgot,
-      // fieldErrors,
-      // svgIcon
+      loader,
+      forgot,
+      validation,
+      svgIcon
    }
 };
 </script>
