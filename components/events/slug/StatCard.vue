@@ -40,7 +40,7 @@ export default {
     font-weight: bold;
   }
   span:nth-child(2) {
-    color: black;
+    color: rgba(0, 0, 0, 0.836);
     font-weight: bold;
   }
 }

@@ -20,7 +20,7 @@
         />
       </div>
       <div class="col-md-4">
-        <button class="kbtn-1 kbtn-2 invite">Send Invite</button>
+        <button class="kbtn-1 kbtn-2">Send Invite</button>
       </div>
     </div>
 

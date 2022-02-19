@@ -153,7 +153,7 @@
   border: none;
   width: max-content;
   height: max-content;
-  border: 1.5px solid $secondary;
+  // border: 1.5px solid $secondary;
   @media (max-width: 576px) {
     padding: 10px 18px;
     height: max-content;
@@ -194,7 +194,7 @@
 
 .kbtn-2 {
   // padding: 8px 45px;
-  padding: 8px 25px;
+  padding: 8px 35px;
   width: max-content;
   background-color: #023e4f;
   color: white;
@@ -207,11 +207,11 @@
   font-style: normal;
   font-weight: 700;
 
-  @media (min-width: 576px) {
+  @media (max-width: 576px) {
     padding: 12px 66px;
     height: max-content;
   }
-  @media (min-width: 360px) {
+  @media (max-width: 360px) {
     // padding: 12px 22px;
     padding: 9px 28px;
     height: max-content;

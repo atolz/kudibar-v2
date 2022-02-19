@@ -16,7 +16,7 @@
         />
       </div>
       <div class="col-md-4">
-        <button class="kbtn-1 kbtn-2 kbtn-2--outlined">Generate Link</button>
+        <button class="kbtn-1 kbtn-2">Generate Link</button>
       </div>
     </div>
 

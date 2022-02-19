@@ -1,6 +1,5 @@
 <template>
   <div>
-
     <main class="my-container">
       <!-- Mobile Slider -->
       <slider-mobile />
@@ -9,11 +8,7 @@
         <div class="col-sm-12 d-flex">
           <ul class="pul" style="padding-left: 0px !important">
             <li class="chip" v-for="(nav, i) in filters" :key="i">
-              <a
-                href="#"
-                class="chip-content"
-                @click.prevent="toggleModalScreen(i)"
-              >
+              <a href="#" class="chip-content">
                 <span v-if="nav.icon == undefined" class="chip__text">{{
                   nav.title
                 }}</span>
@@ -64,23 +59,31 @@ export default {
     return {
       filters: [
         {
-          title: "All",
+          title: "All Events",
           active: true,
         },
         {
-          title: "Happening",
+          title: "Happening Now",
           active: false,
         },
         {
-          title: "New",
+          title: "New Event",
           active: false,
         },
         {
-          title: "Partners",
+          title: "Top Event",
           active: false,
         },
         {
-          title: "Media",
+          title: "Event Near You",
+          active: false,
+        },
+        {
+          title: "Free Event",
+          active: false,
+        },
+        {
+          title: "Paid Event",
           active: false,
         },
       ],
@@ -88,7 +91,7 @@ export default {
   },
   components: {
     eventsBox,
-    sliderMobile
+    sliderMobile,
   },
 };
 </script>

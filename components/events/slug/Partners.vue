@@ -1,108 +1,134 @@
 <template>
   <div>
-    <div class="form" v-for="(pat, i) in partners" :key="i">
-      <div class="row">
-        <label for="event title" class="kudi-label">Event title</label>
-        <input
-          id="event title"
-          type="text"
-          class="kudi-input"
-          placeholder="Title"
-        />
-      </div>
-      <div class="partners">
-        <div class="partners__box row">
-          <div class="col-md-6" v-for="(p, i) in pat.data" :key="i">
-            <div class="partners__card">
-              <div class="partners__card__body">
-                <svg class="svg-icon icon-Cancle" style="cursor: pointer">
-                  <use xlink:href="/images/sprite.svg#icon-Cancle"></use>
-                </svg>
-                <i class="icon-image-thumbnail"></i>
-                <label for="file">Click to add partner logo</label>
-                <input type="file" class="d-none" id="file" />
-                <span>700px by 1500px JPEG or PNG</span>
-              </div>
-              <div class="partners__card__footer">
-                <input type="text" placeholder="Type Partner Name" />
+    <div class="partner-form">
+      <div class="form" v-for="(pat, i) in partners" :key="i">
+        <div class="">
+          <label for="event title" class="kudi-label">Event title</label>
+          <input
+            id="event title"
+            type="text"
+            class="kudi-input"
+            placeholder="Title"
+          />
+        </div>
+        <div class="partners">
+          <div class="partners__box row">
+            <div class="col-md-6" v-for="(p, i2) in pat.data" :key="i2">
+              <div class="partners__card">
+                <div class="partners__card__body">
+                  <svg
+                    @click="
+                      () => {
+                        removeInnerPartner(i, i2);
+                      }
+                    "
+                    class="svg-icon icon-Cancle"
+                    style="cursor: pointer"
+                  >
+                    <use xlink:href="/images/sprite.svg#icon-Cancle"></use>
+                  </svg>
+                  <i class="icon-image-thumbnail"></i>
+                  <label for="file">Click to add partner logo</label>
+                  <input type="file" class="d-none" id="file" />
+                  <span>700px by 1500px JPEG or PNG</span>
+                </div>
+                <div class="partners__card__footer">
+                  <input type="text" placeholder="Type Partner Name" />
+                </div>
               </div>
             </div>
-          </div>
-
-          <div class="col-md-6">
-            <div class="partners__addBox" @click="addInnerPartner(i)">
-              <div><i>+</i> <span>Add Partners</span></div>
+            <div class="col-md-6">
+              <div
+                class="partners__addBox"
+                @click="
+                  () => {
+                    addInnerPartner(i);
+                  }
+                "
+              >
+                <div><span>+</span> <span>Add Partners</span></div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <div class="d-flex align-items-center py-4 pb-2 border-top mt-5">
-        <a href="#" @click.prevent="addPartner"
-          class="kudi-body-1 fw-bold mb-0 font-cario d-inline-flex"
-          style="margin-bottom: 0"
-        >
-          Add partner category +
-        </a>
-        <button class="kbtn-1 kbtn-2 ms-auto">Update</button>
-      </div>
+    </div>
+    <div class="d-flex align-items-center py-4 pb-2 border-top mt-5">
+      <a
+        href="#"
+        @click.prevent="addPartner"
+        class="kudi-body-1 fw-bold mb-0 font-cario d-inline-flex"
+        style="margin-bottom: 0"
+      >
+        Add partner category +
+      </a>
+      <button class="kbtn-1 kbtn-2 ms-auto">Update</button>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  data(){
+  data() {
     return {
       partners: [
         {
           category: "",
-          data: [
-            { name: "", logo: "" }
-          ]
+          data: [{ name: "", logo: "" }],
         },
         {
           category: "",
-          data: [
-            { name: "", logo: "" }
-          ]
-        }
-      ]
-    }
+          data: [{ name: "", logo: "" }],
+        },
+      ],
+    };
   },
 
   methods: {
-    addPartner(){
+    addPartner() {
       this.partners.push({
-          category: "",
-          data: [
-            { name: "", logo: "" }
-          ]
+        category: "",
+        data: [{ name: "", logo: "" }],
       });
 
-      console.log(this.partners.length)
+      console.log(this.partners.length);
     },
 
-    addInnerPartner(i){
+    addInnerPartner(i) {
       this.partners[i].data.push({ name: "", logo: "" });
 
-      console.log(this.partners.length)
-    }
-  }
+      console.log(this.partners[i].data.length);
+    },
+    removeInnerPartner(i, i2) {
+      this.partners[i].data.splice(i2, 1);
+      console.log("this is i2", i2);
+
+      // console.log(this.partners[i2].data);
+    },
+  },
 };
 </script>
 
 <style scoped lang="scss">
+.partner-form {
+  height: 500px;
+  overflow-y: scroll;
+  &::-webkit-scrollbar-thumb {
+    // background: #ff0000;
+    // display: none;
+  }
+}
 .partners {
   &__box {
     border-radius: 8px;
     width: 100%;
-    height: 412px;
-    padding: 15px 0;
+    max-height: 412px;
+    padding: 15px 10px;
     // padding: 25px 30px 0px;
     overflow: scroll;
     &::-webkit-scrollbar-thumb {
       // background: #ff0000;
+      display: none;
     }
     // min-width: 650px;
   }
@@ -114,6 +140,7 @@ export default {
     width: 100%;
     border-radius: 8px;
     box-shadow: 0 3px 21px 0 rgb(0 0 0 / 7%);
+    margin-bottom: 20px;
 
     &__body {
       background: #f0f3f5;
@@ -179,6 +206,7 @@ export default {
 
   &__addBox {
     width: 100%;
+    min-width: 300px;
     color: #023e4f;
     font-family: Cairo;
     font-size: 16px;
@@ -197,7 +225,7 @@ export default {
     span {
     }
 
-    i {
+    span:first-child {
       margin-right: 10px;
       color: #f08800;
       background: #ffe6c6;

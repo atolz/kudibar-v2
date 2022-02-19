@@ -1,7 +1,7 @@
 
 
 <template>
-  <div class="container px-md-2 px-xl-5 pb-5">
+  <div class="container px-md-2 px-xl-0 pb-5">
     <!-- <div
     class=""
     style="
@@ -112,7 +112,12 @@
             >
               <div class="statBox__total d-flex align-items-center">
                 <div class="circular-progress">
-                  <CircularProgress size="60px" value="60" />
+                  <CircularProgress
+                    size="60px"
+                    value="60"
+                    type="percent"
+                    color="#F08800"
+                  />
                 </div>
                 <h4>Total Tickets - 50</h4>
                 <p class="ms-auto">Sold - N0</p>
@@ -122,12 +127,12 @@
                   <h4>Regular tickets (N0)</h4>
                   <p class="ms-auto">Sold - 0/100</p>
                 </div>
-                <LinearProgress :color="'#023E4F'" :value="'50'" />
+                <LinearProgress :color="'#023E4F'" :value="'50'" height="7px" />
                 <div class="d-flex mb-3 mt-5">
                   <h4>Regular tickets (N0)</h4>
                   <p class="ms-auto">Sold - 0/100</p>
                 </div>
-                <LinearProgress :color="'#F08800'" :value="'50'" />
+                <LinearProgress :color="'#F08800'" :value="'50'" height="7px" />
               </div>
             </AnalyticsBox>
           </div>
@@ -184,7 +189,11 @@
                 class="d-flex justify-content-center align-items-center"
                 style="margin: 20px 0px 30px"
               >
-                <CircularProgress value="60" size="120px" />
+                <CircularProgress
+                  value="0"
+                  size="120px"
+                  color="rgb(1, 120, 154)"
+                />
               </div>
               <div
                 class="
@@ -202,7 +211,11 @@
                   <i class="icon-Star-filled"></i>
                 </div>
                 <div class="rrBox__linear-progress">
-                  <LinearProgress :color="'#01789A'" :value="'50'" />
+                  <LinearProgress
+                    :color="'#01789A'"
+                    :value="'30'"
+                    height="5px"
+                  />
                 </div>
                 <div class="rrBox__rating">5</div>
               </div>
@@ -222,7 +235,11 @@
                   <!-- <i class="icon-Star-filled"></i> -->
                 </div>
                 <div class="rrBox__linear-progress">
-                  <LinearProgress :color="'#01789A'" :value="'50'" />
+                  <LinearProgress
+                    :color="'#01789A'"
+                    :value="'70'"
+                    height="5px"
+                  />
                 </div>
                 <div class="rrBox__rating">5</div>
               </div>
@@ -242,7 +259,11 @@
                   <!-- <i class="icon-Star-filled"></i> -->
                 </div>
                 <div class="rrBox__linear-progress">
-                  <LinearProgress :color="'#01789A'" :value="'50'" />
+                  <LinearProgress
+                    :color="'#01789A'"
+                    :value="'50'"
+                    height="5px"
+                  />
                 </div>
                 <div class="rrBox__rating">5</div>
               </div>
@@ -262,7 +283,11 @@
                   <!-- <i class="icon-Star-filled"></i> -->
                 </div>
                 <div class="rrBox__linear-progress">
-                  <LinearProgress :color="'#01789A'" :value="'50'" />
+                  <LinearProgress
+                    :color="'#01789A'"
+                    :value="'50'"
+                    height="5px"
+                  />
                 </div>
                 <div class="rrBox__rating">5</div>
               </div>
@@ -282,7 +307,11 @@
                   <!-- <i class="icon-Star-filled"></i> -->
                 </div>
                 <div class="rrBox__linear-progress">
-                  <LinearProgress :color="'#01789A'" :value="'50'" />
+                  <LinearProgress
+                    :color="'#01789A'"
+                    :value="'50'"
+                    height="5px"
+                  />
                 </div>
                 <div class="rrBox__rating">5</div>
               </div>
@@ -578,19 +607,25 @@ export default {
   }
 
   &__starRatings {
+    padding-left: 24px;
+
+    .icon-Star-filled {
+      margin-right: 2.5px;
+    }
   }
 
   &__star {
     white-space: nowrap;
     // margin-right: 20px;
-    font-size: 12px;
+    font-size: 10px;
     color: #dfb300;
-    min-width: 100px;
+    min-width: 56px;
     justify-content: flex-end;
     display: flex;
+    font-size: 10px;
   }
   &__rating {
-    margin-left: 20px;
+    margin-left: 32px;
   }
   &__footer {
     margin-top: 27px;
@@ -873,7 +908,7 @@ export default {
   padding: 21px 28px;
   background: #ffffff;
   border-radius: 15px;
-  margin-left: 24px;
+  // margin-left: 24px;
 
   span {
     // font-family: Cairo;

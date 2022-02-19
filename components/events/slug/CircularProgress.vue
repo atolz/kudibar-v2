@@ -1,6 +1,14 @@
 <template>
-  <div class="container" :style="{ '--value': value, '--size': size }">
-    <h1>{{ value }}%</h1>
+  <div
+    class="container"
+    :style="{ '--value': 100 - value, '--size': size, '--color': color }"
+  >
+    <h1 v-if="type == 'percent'" class="variant">{{ value }}%</h1>
+    <h1 v-else>
+      {{ value }}
+      <p>Out of 5</p>
+    </h1>
+
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1 -1 34 36">
       <circle cx="16" cy="16" r="15.9155" class="progress-bar__background" />
 
@@ -16,12 +24,12 @@
 
 <script>
 export default {
-  props: ["size", "value"],
+  props: ["size", "value", "type", "color"],
 };
 </script>
 
 <style lang="scss" scoped>
-$progress-bar-stroke-width: 2.5;
+$progress-bar-stroke-width: 1.8;
 $progress-bar-size: 120px;
 
 svg {
@@ -39,14 +47,15 @@ svg {
 .progress-bar__progress {
   fill: none;
   stroke: #e2eff0;
-  stroke: rgb(1, 120, 154);
+  stroke: var(--color);
   stroke-dasharray: 100;
   stroke-dashoffset: calc(100 - var(--value));
+  stroke-dashoffset: var(--value);
   animation-fill-mode: forwards;
   stroke-linecap: round;
   stroke-width: $progress-bar-stroke-width;
   transition: stroke-dashoffset 1s ease-in-out;
-  animation: circle 2s linear;
+  animation: circle 1s linear;
 }
 
 .container {
@@ -69,11 +78,39 @@ svg {
     display: block;
     color: currentColor;
     z-index: 2;
+    color: var(--color);
+
     font-family: Roboto;
+    font-size: 24px;
     font-style: normal;
     font-weight: 500;
-    font-size: 14px;
+    line-height: 28px;
+    letter-spacing: 0em;
+    text-align: center;
+
+    p {
+      font-family: Roboto;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 16px;
+      letter-spacing: 0em;
+      text-align: center;
+      margin-top: 8px;
+      color: #617b83;
+      margin-bottom: 0 !important;
+    }
   }
+}
+
+.variant {
+  font-family: Roboto;
+  font-size: 14px !important;
+  font-style: normal !important;
+  font-weight: 500 !important;
+  line-height: 16px;
+  letter-spacing: 0em;
+  text-align: center;
 }
 
 @keyframes circle {

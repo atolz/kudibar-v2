@@ -1,22 +1,25 @@
 <template>
-  <div class="my-progress">
+  <div class="my-progress" :style="{ '--height': height }">
     <div
       class="my-progress__indicator"
-      :style="{ backgroundColor: color, width: `${value}%` }"
+      :style="{
+        backgroundColor: color,
+        width: `${value}%`,
+      }"
     ></div>
   </div>
 </template>
 
 <script>
 export default {
-  props: ["value", "color"],
+  props: ["value", "color", "height"],
 };
 </script>
 
 <style lang="scss" scoped>
 .my-progress {
   width: 100%;
-  height: 7px;
+  height: var(--height);
   position: relative;
   border-radius: 3px;
   background-color: #cfdbe4;

@@ -6,40 +6,61 @@
       @on-close="modalClose"
     >
       <div class="details" style="max-width: 450px">
-        <h4>Music Festival Jam Africa Concert</h4>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id tristique
-          nunc lectus eget sagittis, risus mi orci. Nulla cursus sociis
-          suspendisse eu nunc blandit sed sed. Pellentesque justo elementum in
-          pretium nunc eget dolor.
-        </p>
-        <div class="d-flex justify-content-between details__host">
-          <div class="">Hosted By - Arthur Ibik</div>
-          <div class="">Monday June 12, 2021</div>
+        <h4 class="kudi-h4">Music Festival Jam Africa Concert</h4>
+        <p>Hosted By - Arthur Ibik</p>
+        <div class="details__box">
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="">Regular</span>
+            <span class="d-flex align-items-center"
+              ><i
+                data-v-f3ab142c=""
+                class="icon-Ticket"
+                style="color: rgb(240, 136, 0); font-size: 20px"
+              ></i
+              ><span class="ms-3 mb-0" style="margin-bottom: 0px"
+                >Regular</span
+              ></span
+            >
+          </div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id
+            tristique nunc lectus eget sagittis, risus mi orci.
+          </p>
         </div>
-
-        <div class="details__ticketNum">
-          <p>Number of Tickets</p>
-          <div>
-            <i class="icon-Ticket"></i>
-            <span>Regular x1</span>
+        <div class="details__box">
+          <div class="d-flex justify-content-between align-items-center">
+            <span class="">VIP</span>
+            <span class="d-flex align-items-center"
+              ><i
+                data-v-f3ab142c=""
+                class="icon-Ticket"
+                style="color: rgb(240, 136, 0); font-size: 20px"
+              ></i
+              ><span class="ms-3 mb-0" style="margin-bottom: 0px"
+                >VIP - 24 left</span
+              ></span
+            >
           </div>
-          <div>
-            <i class="icon-Ticket"></i>
-            <span>VIP x1</span>
-          </div>
-          <div>
-            <i class="icon-Ticket"></i>
-            <span>VVIP x1</span>
-          </div>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Id
+            tristique nunc lectus eget sagittis, risus mi orci.
+          </p>
         </div>
-
-        <div class="details__qr">
-          <img src="/images/qrcode.jpg" alt="scan qrcode" />
-          <div>
-            <span>Ticket Ref.</span>
-            <span>123eFG</span>
-          </div>
+      </div>
+    </modal>
+    <modal
+      :title="'Share'"
+      :is-active="shareModalActive"
+      @on-close="modalClose"
+    >
+      <div class="share" style="max-width: 450px">
+        <!-- <h4 class="kudi-h4">Share</h4> -->
+        <p>Gift tickets to your friends & loved ones.</p>
+        <div class="share__media">
+          <a class="share__box"><img src="/Fb.svg" alt="" /></a>
+          <a class="share__box"><img src="/WA.svg" alt="" /></a>
+          <a class="share__box"><img src="/Twt.svg" alt="" /></a>
+          <a class="share__box"><img src="/Msg.svg" alt="" /></a>
         </div>
       </div>
     </modal>
@@ -73,7 +94,7 @@
               </svg> -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                class="h-6 w-6"
+                class="h-6 w-6 pointer"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -84,6 +105,8 @@
                   color: #023e4f;
                   stroke-width: 3px;
                 "
+                :style="{ fill: like ? '#023e4f' : 'none' }"
+                @click="toggleLike"
               >
                 <path
                   stroke-linecap="round"
@@ -107,7 +130,7 @@
             </div>
           </div>
           <div class="col-md-6 justify-content-end">
-            <div style="cursor: pointer">
+            <div @click="toggleShareActive" style="cursor: pointer">
               <!-- <i class="icon-Share" style="color: #023e4f"></i> -->
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +160,7 @@
     </div>
 
     <div class="row mb-4">
-      <div class="col-lg-6">
+      <div class="col-lg-7">
         <div class="row gap-4">
           <!-- Kudi video -->
           <div class="col-12">
@@ -257,7 +280,7 @@
           </div>
         </div>
       </div>
-      <div class="col-lg-6">
+      <div class="col-lg-5">
         <div class="row gap-4">
           <!-- Ticket -->
           <div class="col-12">
@@ -290,7 +313,10 @@
                   </div>
                 </div>
                 <div class="details">
-                  <div class="d-flex align-items-center">
+                  <div
+                    @click="toggleActive"
+                    class="d-flex align-items-center pointer"
+                  >
                     <i class="icon-info-circle"></i>
                     <span>Ticket Details</span>
                     <span class="ms-auto d-flex-col"
@@ -420,6 +446,8 @@ export default {
     return {
       modalActive: false,
       intrested: true,
+      shareModalActive: false,
+      like: false,
     };
   },
   methods: {
@@ -428,9 +456,16 @@ export default {
     },
     modalClose(action) {
       this.modalActive = action;
+      this.shareModalActive = action;
     },
     toggleActive() {
       this.modalActive = !this.modalActive;
+    },
+    toggleShareActive() {
+      this.shareModalActive = !this.shareModalActive;
+    },
+    toggleLike() {
+      this.like = !this.like;
     },
   },
   components: {
@@ -469,6 +504,83 @@ export default {
     }
   }
 }
+.share {
+  display: grid;
+  justify-content: center;
+
+  p {
+    color: #023e4f;
+    font-family: Segoe UI;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 22px;
+    letter-spacing: 0em;
+    text-align: center;
+  }
+  &__media {
+    display: flex;
+    justify-content: space-between;
+    margin: 32px 50px;
+  }
+  &__box {
+    display: grid;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 75px;
+    width: 75px;
+    border-radius: 50%;
+    background: #f0f3f5;
+    &:not(:last-child) {
+      margin-right: 32px;
+    }
+  }
+}
+
+.details {
+  p {
+    color: #023e4f;
+    font-family: Cairo;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 30px;
+    letter-spacing: 0em;
+    text-align: left;
+  }
+
+  &__box {
+    background: #f0f3f5;
+    border-radius: 8px;
+    padding: 16px 24px;
+    margin-bottom: 13px;
+    span {
+      font-family: Cairo;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 600;
+      line-height: 19px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: #023e4f;
+      margin-bottom: 12px;
+    }
+
+    p {
+      color: #8990a4;
+      font-family: Segoe UI;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 20px;
+      letter-spacing: 0em;
+      text-align: left;
+    }
+  }
+}
+
 .passcode.form {
   padding: 62px;
   background-color: white;
@@ -636,8 +748,10 @@ export default {
 
     .details {
       align-items: center;
+      color: #023e4f;
       i {
-        margin-right: 10px;
+        margin-right: 8px;
+        font-size: 20px;
       }
       span {
         font-family: Roboto;
@@ -647,7 +761,6 @@ export default {
         line-height: 19px;
         letter-spacing: 0em;
         text-align: left;
-        color: #023e4f;
         display: inline-flex;
         flex-direction: column;
       }

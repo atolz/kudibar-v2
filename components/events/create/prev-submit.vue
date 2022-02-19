@@ -111,19 +111,19 @@
         <h4 class="kudi-h4">Contact & RSVP.</h4>
 
         <div>
-          <i class="icon-Message mr-4" style="color: #f08800"></i
+          <i class="icon-Message mr-4" style="color: gray"></i
           ><span>Ebuka@kudibar.com</span>
         </div>
         <div>
-          <i class="icon-Call mr-4" style="color: green"></i
+          <i class="icon-Call mr-4" style="color: gray"></i
           ><span>081234567890</span>
         </div>
         <div>
-          <i class="icon-Twt mr-4" style="color: #023e4f"></i
+          <i class="icon-Twt mr-4" style="color: gray"></i
           ><span>@kudibar_Live</span>
         </div>
         <div>
-          <i class="icon-Insta mr-4" style="color: #9a2828"></i
+          <i class="icon-Insta mr-4" style="color: gray"></i
           ><span>@kudibar_Live</span>
         </div>
         <!-- <div><i class="icon-Fb mr-4"></i><span>Ebuka@kudibar.com</span></div> -->
