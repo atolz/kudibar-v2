@@ -1,20 +1,21 @@
 <template>
-	<div>
+	<div class="" @click.self="close">
 
       <div class="input-group">
-         <span class="input-group-text ps-0" @click="toggle">
-            <!-- <span>{{active.flag}}</span> -->
-            <img :src="flag(active.code)" width="13" />
+         <span class="c-inp input-group-text" @click="toggle">
+            <span>{{active.flag}}</span>
             <span style="padding-left: 5px; font-weight: 700">
                {{ active.dial_code }}
             </span>
          </span>
-         <input type="text" class="form-control input-phone gcp" ref="phone" :value="value" :placeholder="place" @keyup="update" />
+         <div class="p-inp form-control">
+            <input type="text" class="input-phone " ref="phone" :value="value" :placeholder="place" @keyup="update" />
+         </div>
       </div>
 
       <div class="country--code" v-if="open">
          <div class="search-cover">
-            <input type="text" v-model="filter" @keyup="search" placeholder="Filter search..." autocomplete="true" />
+            <input type="text" v-model="filter" @keyup="search" class="form-control form-control-sm" placeholder="Search country" autocomplete="true" />
          </div>
          <ul>
             <li v-for="(country, i) in countries" @click="select(i)" :key="i">
@@ -28,35 +29,34 @@
       </div>
 
 
-		<!-- <div class="row no-gutters">
-			<div class="col-4 col-sm-3">
-				<div class="">
-					<div class="input act--btn" @click="toggle">
-						<span class="tab">
-							<img :src="flag(active.code)" width="13" />
-							<span style="padding-left: 5px; font-weight: 700">
-								{{ active.dial_code }}
-							</span>
-						</span>
-					</div>
+		<!-- <div class="row g-0 d-flex justify-content-start">
+			<div class="col-2">
+				<div class="input act--btn" @click="toggle">
+               <span class="tab">
+                  <span>{{active.flag}}</span>
+                  <span style="padding-left: 5px; font-weight: 700">
+                     {{ active.dial_code }}
+                  </span>
+               </span>
+            </div>
 
-					<div class="country--code" v-if="open">
-						<div class="search-cover">
-							<input type="text" v-model="filter" @keyup="search" class="form-control form-control-sm" placeholder="Filter search..." autocomplete="true" />
-						</div>
-						<ul>
-							<li v-for="(country, i) in countries" @click="select(i)" :key="i">
-								<div :class="{active: country.active}">
-									<img :src="flag(country.code)" :alt="country.name" width="13" />
-									<span>{{ country.name }}</span>
-								</div>
-							</li>
-						</ul>
-					</div>
-				</div>
+            <div class="country--code" v-if="open">
+               <div class="search-cover">
+                  <input type="text" v-model="filter" @keyup="search" class="form-control form-control-sm" placeholder="Filter search..." autocomplete="true" />
+               </div>
+               <ul>
+                  <li v-for="(country, i) in countries" @click="select(i)" :key="i">
+                     <div :class="{active: country.active}">
+                        <span>{{ country.flag }}</span>
+                        <span>{{ country.name }}</span>
+                     </div>
+                  </li>
+               </ul>
+            </div>
 			</div>
-			<div class="col-8 col-sm-9">
-				<input type="text" class="input input-phone" style="height: 30px" ref="phone" :value="value" :placeholder="place" @keyup="update" />
+
+			<div class="col-10">
+				<input type="text" class="input input-phone inp" style="height: 30px" ref="phone" :value="value" :placeholder="place" @keyup="update" />
 			</div>
 		</div> -->
 	</div>
@@ -65,6 +65,8 @@
 <script>
 	import Cleave from 'cleave.js';
 	import 'cleave.js/dist/addons/cleave-phone.i18n';
+
+   import countries from "@/data/countries";
 
 	export default {
 		props: {
@@ -79,10 +81,11 @@
 		},
 		data(){
 			return {
+            countries,
+            all: countries,
 				first: ['NG', 'GH'],
 				active: {},
 				basic: [],
-				countries: [],
 				open: false,
 				filter: '',
 				phone: ''
@@ -100,15 +103,17 @@
 			},
 
 			select(i){
+            console.log({country: this.countries[i]})
 				this.countries.map(v => v.active = false);
 				this.active = this.countries[i];
 				this.active.active = true;
 				this.open = false;
 				this.runCleave(this.active.code);
 
-				// Search
+				// // Search
 				this.filter = '';
-				this.countries = this.$store.state.countries.data;
+            console.log({active: this.active});
+				// this.countries = this.$store.state.countries.data;
 			},
 
 			buildFirst(){
@@ -125,7 +130,7 @@
 				let bask = [];
 				let str = this.filter;
 				let reg = new RegExp(str, 'ig');
-				let data = this.$store.state.countries.data;
+				let data = countries;
 
 				if(str.length !== 0){
 					this.countries = [];
@@ -135,7 +140,7 @@
 						}
 					});
 				}else{
-					this.countries = this.$store.state.countries.data;
+					this.countries = this.all;
 				}
 			},
 
@@ -145,21 +150,26 @@
 				   phone: true,
 				   phoneRegionCode: c
 				});
+
+            console.log({active: this.active})
 			},
 
 			update(){
 				let number = this.$refs.phone.value;
 				this.$emit('input', number);
 				this.$emit('update', {
-					formattedNumber: this.active.dial_code +' (0) '+number,
+               dialCode: this.active.dial_code,
+					formattedNumber: this.active.dial_code+number,
 				});
-			}
+			},
+
+         close(){
+            console.log("Dem wan close me oooo!")
+         }
 		},
 
 		mounted(){
 			this.runCleave('NG');
-
-			this.countries = this.$store.state.countries.data;
 			this.buildFirst();
 			// online / offline
 			// this.$nuxt.isOnline
@@ -198,34 +208,53 @@
       }
    }
 
-   .gcp{
+   .c-inp{
       border: none;
       background: none;
-      height: 30px;
-      padding-left: 5px;
-      padding-top: 8px;
-      outline: none;
+      padding-left: 0;
+      cursor: pointer;
+   }
 
-      &:focus{
-         outline: none;
+   .p-inp{
+      margin-top: 5px;
+      background: none;
+      border: 0;
+      border-left: 1px solid #dde0e3;
+
+      input{
+         background: none;
+         border: none !important;
+
+         &:focus{
+            outline: none;
+            box-shadow: none;
+         }
       }
    }
 
 	.country--code {
 		position: absolute;
-		// width: 100%;
-		min-width: 230px;
-		z-index: 1;
-		background:  #fff;
-		border-radius: 4px;
-      left: 30px;
-      bottom: -55px;
+      min-width: 230px;
+      z-index: 1;
+      background: #fff;
+      border-radius: 4px;
+      left: 0;
+      box-shadow: 0 3px 21px 0 rgb(0 0 0 / 7%);
 
 		.search-cover{
-			padding: 10px;
+			padding: 15px;
 			border-bottom: 1px solid #ddd;
 			background: #f3f3f3;
 			border-radius: 4px 4px 0 0;
+         border: 1px solid #ddd;
+         margin-bottom: 15px;
+
+         input{
+            height: 30px;
+            background: #ffffff;
+            margin-left: 10px;
+            font-size: 14px;
+         }
 		}
 
 		ul{

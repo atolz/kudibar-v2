@@ -390,7 +390,7 @@ import Partners from "@/components/events/slug/Partners.vue";
 import Team from "@/components/events/slug/Team.vue";
 
 export default {
-  // layout: "dashboard",
+  layout: "dashboard",
   head() {
     return {
       title: "Kudibar | Event Analytics ",

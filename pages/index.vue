@@ -18,17 +18,16 @@ export default {
             limit: 50,
             page: 0
          });
-         // console.log({res})
+         console.log({res})
 
-         // let data = res.data
+         let data = res.data
 
          return {
-            total:  res.total,
-            events: res.data,
+            total:  res.total || 0,
+            events: res.data || [],
             featured: [],
          }
       }catch(e){
-         console.log({error: e});
          // error({ statusCode: 404, message: 'Could not fetch data.' })
          return {event: []}
          // console.log(res);

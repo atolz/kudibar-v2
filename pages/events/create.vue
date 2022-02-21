@@ -910,7 +910,7 @@ import {
 } from "vuelidate/lib/validators";
 
 export default {
-  // layout: "dashboard",
+  layout: "dashboard",
   head() {
     return {
       title: "Event create ",

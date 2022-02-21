@@ -1,5 +1,4 @@
 <template>
-  <!-- todo: active class -->
   <nav
     class="
       main-header
@@ -123,7 +122,7 @@
               Hi,
               <!-- first name  -->
               <span class="">
-                {{ user.firstname }}
+                {{ $auth.user.firstname }}
               </span>
             </a>
           </li>
@@ -141,19 +140,19 @@
               <!-- Avi  -->
               <span
                 class="avatar"
-                v-if="user.avatar !== '' && user.avatar !== undefined"
+                v-if="$auth.user.avatar !== '' && $auth.user.avatar !== undefined"
               >
-                <img :src="user.avatar" width="40px" class="rounded-circle" />
+                <img :src="$auth.user.avatar" width="40px" class="rounded-circle" />
               </span>
 
               <!-- IDK  -->
               <span
                 class="avatar-txt"
-                :style="'background: ' + user.color"
+                :style="'background: ' + $auth.user.color"
                 v-else
               >
-                {{ user.firstname[0] }}
-                {{ user.lastname[0] }}
+                {{ $auth.user.firstname[0] }}
+                {{ $auth.user.lastname[0] }}
               </span>
             </a>
 
@@ -163,7 +162,7 @@
               aria-labelledby="navbarDropdown"
             >
               <li>
-                <nuxt-link class="dropdown-item" :to="'/@' + user.username">
+                <nuxt-link class="dropdown-item" :to="'/@' + $auth.user.username">
                   Profile
                 </nuxt-link>
               </li>
@@ -307,7 +306,7 @@ export default {
 
     checkMessages() {
       if (this.$auth.loggedIn) {
-        let id = this.user._id;
+        let id = this.$auth.user._id;
 
         setInterval((_) => {
           this.$sio.emit("fetch notifications", {
@@ -331,21 +330,19 @@ export default {
     },
 
     logout() {
-      this.$store.commit("add", false);
-      this.$store.commit("login", false);
       this.$auth.logout();
     },
   },
 
   mounted() {
     // this.getMessages();
-    this.checkMessages();
+   //  this.checkMessages();
 
-    let _that = this;
+   //  let _that = this;
 
-    window.addEventListener("mouseup", (event) => {
-      _that.isDropActive = false;
-    });
+   //  window.addEventListener("mouseup", (event) => {
+   //    _that.isDropActive = false;
+   //  });
   },
 };
 </script>
