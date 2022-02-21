@@ -165,8 +165,11 @@ export default {
             this.form.eventQuery = qry;
 
             let res = await this.$auth.loginWith("local", { data: this.form });
+            this.$auth.setUser(res.data.user);
+            // this.$store.commit("add", res.data.user);
+            // console.log({ user: this.user });
 
-            this.status("Login successful", "success");
+            // this.status("Login successful", "success");
 
             // Redirect
             let query = this.$route.query ? this.$route.query : "";

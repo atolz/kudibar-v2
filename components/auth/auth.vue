@@ -221,6 +221,7 @@ export default {
 
             // store or authenticate user
             this.checkAuth(res.data);
+
             // this.$store.commit('page/setAuthData', {
             //    firstname: res.data.given_name,
             //    lastname:  res.data.family_name,

@@ -41,10 +41,10 @@
 			<!-- end email -->
 
 			<!-- phone -->
-         <div class="mb-3">
+         <div class="mb-3 position-relative">
             <div class="field sm" :class="{ 'form-group--error': $v.form.phone.$error }">
                <span class="ta-title">Phone number</span>
-               <phone-input v-model="form.phone" place="Phone Number" @update="onPhone" />
+               <phone-input v-model="form.phone" place="000 0000 00..." @update="onPhone" />
             </div>
             <validation v-if="$v.form.phone.$error" :field="$v.form.phone" />
             <div v-for="err in errors" :key="err">
@@ -98,8 +98,8 @@
 <script>
   //  import loader from '@/components/util/loader';
   //  import svgIcon from '@/components/util/svg-loader';
-  //  import phoneInput from '@/components/input/phone';
-  //  import fieldErrors from '@/components/input/validation';
+   import phoneInput from '@/components/input/phone';
+   import validation from '@/components/input/validation';
 
    import { required, minLength, maxLength, email, sameAs } from 'vuelidate/lib/validators';
 
@@ -153,6 +153,7 @@
 				this.$v.form.$touch();
 		      if (this.$v.form.$pending || this.$v.form.$error) return;
 
+
 		      // Try Submit
 				try{
                this.isLoading = true;
@@ -165,18 +166,15 @@
 
                let res = await this.$auth.loginWith('local', { data: this.form });
 					// this.$helper.store_local('kb-uid', res.data.user.id);
-	         	this.$store.commit('add', res.data.user);
-					this.$store.commit('login', true);
+	         	// this.$store.commit('add', res.data.user);
+					// this.$store.commit('login', true);
 
-               // redirect
-	      		setTimeout(_ => {
-                  let query = this.$route.query ? this.$route.query: '';
-                  if(qry.hasOwnProperty('ref')){
-                     this.$router.push({path: '/events/'+qry.ref});
-                  }else{
-                     this.$router.push({name: this.returnUrl(), query});
-                  }
-					}, 1000);
+               // Redirect
+               let query = this.$route.query ? this.$route.query : "";
+               let url = this.returnUrl();
+               // console.log(url);
+
+               this.$router.push({ name: url, query });
 
 			      this.status('Account created', 'success');
 				}catch(error){
@@ -242,14 +240,14 @@
 
 		components: {
 			// loader,
-			// fieldErrors,
+			validation,
 			// svgIcon,
 			phoneCode: VuePhoneNumberInput,
-			// phoneInput
+			phoneInput
 		},
 
 		mounted(){
-			this.hasUser();
+			// this.hasUser();
 		}
 	}
 </script>

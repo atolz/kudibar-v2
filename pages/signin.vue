@@ -3,7 +3,7 @@
       <div class="wrap layer">
          <div class="row justify-content-md-center mt-5">
 
-            <div class="col-sm-6 col-md-6 col-lg-6">
+            <div class="col-sm-6 col-md-7 col-lg-6">
                <auth-box />
                <div class="mt-3 text-center">
                   <small>
