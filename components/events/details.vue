@@ -438,9 +438,10 @@
 </template>
 
 <script>
-import IncDec from "@/components/events/inc-dec.vue";
-import AnalytictBox from "@/components/events/AnalyticsBox.vue";
+import IncDec from "@/components/events/inc-dec";
+import AnalytictBox from "@/components/events/AnalyticsBox";
 import modal from "@/components/util/modal";
+
 export default {
   data() {
     return {
@@ -450,6 +451,7 @@ export default {
       like: false,
     };
   },
+
   methods: {
     toggleIntrest() {
       this.intrested = !this.intrested;
