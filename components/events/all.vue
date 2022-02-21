@@ -1,62 +1,142 @@
 <template>
-  <div class="events">
-    <div class="row gy-5">
-      <div class="col-sm-4" v-for="(event, i) in events" :key="i">
-        <div class="my-profile">
-          <img src="/images/faces/avatar.jpg" alt="" />
-          <span>Arthur Money</span>
-        </div>
 
-        <div class="my-card">
-          <div class="my-card__head">
-            <div class="img-blur"></div>
-            <img src="/images/camera-stand.png" alt="event picture" />
-            <div class="my-card__btnContainer">
-              <button class="my-card__btn my-card__btn--paid me-auto">
-                <span>Paid</span>
-              </button>
-              <button class="my-card__btn my-card__btn--share ms-auto">
-                <i class="icon-Share"></i>
-              </button>
-              <button class="my-card__btn my-card__btn--like">
-                <!-- <i class="icon-Share"></i> -->
-                <svg class="svg-icon">
-                  <use xlink:href="/images/sprite.svg#icon-love-card"></use>
-                </svg>
-              </button>
-              <!-- <button class="my-card__btn my-card__btn--info">
-                <i class="icon-Filter"></i>
-              </button> -->
+   <div class="my-container">
+
+      <!-- Mobile Slider -->
+      <slider-mobile />
+
+      <!-- Filters -->
+      <nav class="filter row py-2 py-md-5">
+         <div class="col-sm-12 d-flex">
+            <ul class="pul" style="padding-left: 0px !important">
+            <li class="chip" v-for="(nav, i) in filters" :key="i">
+               <a href="#" class="chip-content">
+                  <span v-if="nav.icon == undefined" class="chip__text">{{
+                  nav.title
+                  }}</span>
+                  <i v-if="nav.icon !== undefined" :class="nav.icon"></i>
+               </a>
+            </li>
+            </ul>
+            <svg class="svg-icon icon-Cancle ms-3 mt-2" style="cursor: pointer">
+            <use xlink:href="/images/sprite.svg#icon-search"></use>
+            </svg>
+         </div>
+      </nav>
+
+      <!-- Events Container -->
+      <div class="row gy-5">
+         <div class="col-sm-4" v-for="(event, i) in events" :key="i">
+         <div class="my-profile">
+            <img src="/images/faces/avatar.jpg" alt="" />
+            <span>Arthur Money</span>
+         </div>
+
+         <div class="my-card">
+            <div class="my-card__head">
+               <div class="img-blur"></div>
+               <img src="/images/camera-stand.png" alt="event picture" />
+               <div class="my-card__btnContainer">
+               <button class="my-card__btn my-card__btn--paid me-auto">
+                  <span>Paid</span>
+               </button>
+               <button class="my-card__btn my-card__btn--share ms-auto">
+                  <i class="icon-Share"></i>
+               </button>
+               <button class="my-card__btn my-card__btn--like">
+                  <!-- <i class="icon-Share"></i> -->
+                  <svg class="svg-icon">
+                     <use xlink:href="/images/sprite.svg#icon-love-card"></use>
+                  </svg>
+               </button>
+               <!-- <button class="my-card__btn my-card__btn--info">
+                  <i class="icon-Filter"></i>
+               </button> -->
+               </div>
             </div>
-          </div>
-          <div class="my-card__body" :style="{ '--tag-color': '#1EAE07' }">
-            <div>
-              <h4 class="kudi-h4">
-                <nuxt-link to="/sdjdf">
-                  Business Development Tactics for Startups, SME’s and Top
-                  Businesses
-                </nuxt-link>
-              </h4>
+            <div class="my-card__body" :style="{ '--tag-color': '#1EAE07' }">
+               <div>
+               <h4 class="kudi-h4">
+                  <nuxt-link to="/sdjdf">
+                     Business Development Tactics for Startups, SME’s and Top
+                     Businesses
+                  </nuxt-link>
+               </h4>
+               </div>
+               <div class="location">
+               <i class="icon-Location"></i><span>Enugu State, Nigeria</span>
+               </div>
             </div>
-            <div class="location">
-              <i class="icon-Location"></i><span>Enugu State, Nigeria</span>
-            </div>
-          </div>
-        </div>
+         </div>
+         </div>
       </div>
-    </div>
-  </div>
+
+      <!-- <div class="my-nav">
+         <button class="round-btn-nav active">
+            <i class="icon-arr-left-spear"></i>
+         </button>
+         <button class="round-btn-nav">
+            <i class="icon-arr-right-spear"></i>
+         </button>
+      </div> -->
+   </div>
 </template>
 
 <script>
+
+import sliderMobile from "@/components/events/explore/slider-mobile";
 export default {
-  data() {
-    return {
-      events: [
-        1, 1, 1, 1, 1, 1, 1, 1, 1, 1
-      ]
-    }
-  },
+   props: {
+      events: {
+         type: Array,
+         required: true
+      },
+      featured: {
+         type: Array,
+         required: true
+      },
+      total: {
+         type: Number,
+      }
+   },
+   data() {
+      return {
+         filters: [
+         {
+            title: "All Events",
+            active: true,
+         },
+         {
+            title: "Happening Now",
+            active: false,
+         },
+         {
+            title: "New Event",
+            active: false,
+         },
+         {
+            title: "Top Event",
+            active: false,
+         },
+         {
+            title: "Event Near You",
+            active: false,
+         },
+         {
+            title: "Free Event",
+            active: false,
+         },
+         {
+            title: "Paid Event",
+            active: false,
+         },
+         ],
+      }
+   },
+
+  components: {
+     sliderMobile
+  }
 }
 </script>
 
@@ -228,6 +308,75 @@ div.my-profile {
         margin-left: 16px;
       }
     }
+  }
+}
+
+
+.pul {
+  display: flex;
+  overflow-x: scroll;
+}
+
+.my-container {
+  // max-width: 1400px;
+  max-width: 1300px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.started {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+  h2 {
+    font-family: Cairo;
+    font-size: 40px;
+    font-style: normal;
+    font-weight: 900;
+    line-height: 62px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: var(--kudi-primary-dark);
+    @media (max-width: 900px) {
+      font-size: 30px;
+    }
+  }
+
+  p {
+    font-family: Segoe UI;
+    font-size: 17px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 24px;
+    letter-spacing: 0em;
+    text-align: center;
+    color: var(--kudi-primary-dark);
+
+    margin-bottom: 41px !important ;
+  }
+
+  button {
+    font-family: Cairo;
+    font-size: 14px !important;
+    font-style: normal;
+    font-weight: 400 !important;
+    line-height: 19px;
+    letter-spacing: 0em;
+    text-align: left;
+    color: #edf6f8 !important;
+    background-color: var(--kudi-primary-dark);
+  }
+}
+
+.my-nav {
+  display: flex;
+  width: 100px;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 100px;
+  @media (max-width: 900px) {
+    margin-bottom: 10px;
   }
 }
 </style>
