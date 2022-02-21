@@ -1,5 +1,15 @@
+// Josefin Sans
+// @font-face {
+//    font-family: "Josefin Sans";
+//    src: url($font-path+"JosefinSans-Thin.eot");
+//    src: url($font-path+"JosefinSans-Thin.woff") format("woff"),
+//    url($font-path+"JosefinSans-Thin.woff2") format("woff2"),
+//    // url($font-path+"JosefinSans-Thin.otf") format("opentype"),
+//    url($font-path+"JosefinSans-Thin.svg#filename") format("svg");
+// }
+
 .kudi-h3 {
-  font-family: Cairo;
+  font-family: $title-font;
   font-size: 31px;
   font-style: normal;
   font-weight: 700;
@@ -12,7 +22,7 @@
 
 .kudi-h4 {
   color: #023e4f;
-  font-family: Cairo;
+  font-family: $title-font;
   font-size: 22px;
   font-style: normal;
   font-weight: 700;
@@ -27,7 +37,7 @@
 
 .kudi-h5 {
   color: #023e4f;
-  font-family: Cairo;
+  font-family: $title-font;
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -38,7 +48,7 @@
 
 .kudi-h6 {
   color: #023e4f;
-  font-family: Cairo;
+  font-family: $title-font;
   font-size: 18px;
   font-style: normal;
   font-weight: 700;
@@ -49,7 +59,7 @@
 
 .kudi-h4-popup {
   font-size: 24px !important;
-  font-family: Cairo;
+  font-family: $title-font;
   font-style: normal;
   font-weight: 700;
   line-height: 16px;
