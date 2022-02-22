@@ -524,6 +524,14 @@ export default {
     display: flex;
     justify-content: space-between;
     margin: 32px 50px;
+    // flex-wrap: wrap;
+
+    @media (max-width: 765px) {
+      // justify-content: start;
+      margin: 10px 10px;
+      flex-wrap: wrap;
+      margin: 0;
+    }
   }
   &__box {
     display: grid;
@@ -535,8 +543,18 @@ export default {
     width: 75px;
     border-radius: 50%;
     background: #f0f3f5;
+    margin-bottom: 20px;
+
     &:not(:last-child) {
       margin-right: 32px;
+    }
+
+    @media (max-width: 765px) {
+      margin-right: 0 !important;
+    }
+
+    @media (max-width: 765px) {
+      margin-bottom: 20px;
     }
   }
 }

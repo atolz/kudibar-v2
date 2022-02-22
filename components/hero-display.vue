@@ -10,6 +10,10 @@
           </div>
         </div>
         <div class="col-md-8" style="position: relative">
+          <!-- <div class="blur-grad" ref="topGrad"></div>
+          <div class="blur-grad" ref="bottomGrad"></div> -->
+          <!-- <div class="blur-grad--mobile" ref="topGrad"></div>
+          <div class="blur-grad--mobile" ref="bottomGrad"></div> -->
           <div class="overlay"></div>
           <div class="events hide-scrollbar" ref="events">
             <div class="events__type"><p class="master">Masterclass</p></div>
@@ -112,11 +116,15 @@ export default {
 .blur-grad {
   width: 100%;
   // height: 30px;
-  height: 200px;
+  height: 170px;
   position: absolute;
   left: 0;
   z-index: 1000;
   transition: 0.4s all;
+
+  @media (max-width: 765px) {
+    display: none;
+  }
   &:nth-child(1) {
     top: 0;
     background: linear-gradient(
@@ -125,6 +133,7 @@ export default {
       rgba(2, 62, 79, 0) 156.55%,
       rgba(1, 120, 154, 0) 84.55%
     );
+
     // background: linear-gradient(
     //   180deg,
     //   #adedff -14.88%,
@@ -142,6 +151,60 @@ export default {
       rgba(1, 120, 154, 0) 134.55%
     );
   }
+
+  // &--mobile {
+  //   display: none;
+  //   @media (max-width: 765px) {
+  //     display: block;
+  //   }
+  // }
+}
+.blur-grad--mobile {
+  width: 100%;
+  // height: 30px;
+  height: 170px;
+  position: absolute;
+  left: 0;
+  z-index: 1000;
+  transition: 0.4s all;
+  display: none;
+
+  @media (max-width: 765px) {
+    display: block;
+  }
+  &:nth-child(1) {
+    top: 0;
+    background: linear-gradient(
+      180deg,
+      #fff0dc 22.12%,
+      rgba(2, 62, 79, 0) 156.55%,
+      rgba(1, 120, 154, 0) 84.55%
+    );
+
+    // background: linear-gradient(
+    //   180deg,
+    //   #adedff -14.88%,
+    //   rgba(2, 62, 79, 0) 81.55%,
+    //   rgba(1, 120, 154, 0) 81.55%
+    // );
+  }
+  &:nth-child(2) {
+    bottom: 0 !important;
+    // background: linear-gradient(rgba(0, 0, 255, 0), #fff0dc) no-repeat;
+    background: linear-gradient(
+      360deg,
+      #fff0dc 14.12%,
+      rgba(2, 62, 79, 0) 100.55%,
+      rgba(1, 120, 154, 0) 134.55%
+    );
+  }
+
+  // &--mobile {
+  //   display: none;
+  //   @media (max-width: 765px) {
+  //     display: block;
+  //   }
+  // }
 }
 
 .hero {

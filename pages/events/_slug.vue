@@ -71,7 +71,7 @@
     </nav>
 
     <!-- publish and unpublish -->
-    <div class="d-flex justify-content-start align-items-center">
+    <div class="d-flex justify-content-start align-items-center flex-wrap">
       <div class="pub shadow-sm m-0">
         <span>Publish and Unpublish</span>
         <div class="form-check form-switch float-end">
@@ -79,7 +79,7 @@
         </div>
       </div>
 
-      <div class="my-badge ml-auto ms-2">Public event</div>
+      <div class="my-badge ms-auto ms-sm-4 mt-3">Public event</div>
     </div>
 
     <!-- stat card -->
@@ -390,7 +390,7 @@ import Partners from "@/components/events/slug/Partners.vue";
 import Team from "@/components/events/slug/Team.vue";
 
 export default {
-  layout: "dashboard",
+  // layout: "dashboard",
   head() {
     return {
       title: "Kudibar | Event Analytics ",

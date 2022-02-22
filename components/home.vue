@@ -1,7 +1,7 @@
 <template>
   <div class="content-box" style="background: #f5f5f7">
     <!-- Experience Virtual Events  -->
-    <section class="container-fluid first-bg-img py-5">
+    <section class="container-fluid first-bg-img py-5 section--hero">
       <div class="container">
         <div class="col-md-7 text-white text-left text-md-start">
           <h1 class="fw-bold animate__fadeInDown">
@@ -9,9 +9,8 @@
           </h1>
 
           <p class="my-4 text-white text-left">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut
-            <br />
-            porta in in mauris molestie turpis.
+            From small meeting-boxes to supersized virtual arenas, every event
+            now has a venue.
           </p>
 
           <nuxt-link class="btn kbtn stroke text-uppercase" to="/explore">
@@ -27,11 +26,11 @@
 
     <!-- Arena of Events -->
     <section
-      class="bg-black d-flex flex-column justify-content-center"
+      class="bg-black d-flex flex-column justify-content-center section--arena"
       id="arena"
     >
       <div class="row gy-32 px-2 ps-md-5 align-items-center">
-        <div class="col-lg-6 pe-md-0 arena" style="padding-left: 142px">
+        <div class="col-lg-6 pe-md-0 arena">
           <h2 class="sub-heading text-white text-center text-md-start">
             Arena of events
           </h2>
@@ -126,7 +125,15 @@
 
     <!-- Experience Arena -->
     <section
-      class="d-flex flex-column justify-content-center bg-custom py-5 container"
+      class="
+        d-flex
+        flex-column
+        justify-content-center
+        bg-custom
+        py-5
+        container
+        section--experience
+      "
     >
       <div class="row gy-32 px-md-5 justify-content-between align-items-center">
         <div class="col pe-md-0 device">
@@ -153,11 +160,11 @@
           <!-- Start Creating -->
           <div
             class="
-              col
+              col-md-6
               d-flex
               align-items-center
               justify-content-center
-              py-72 py-lg-100
+              py-5 py-md-72 py-lg-100
               bg-start
               start-creating
             "
@@ -175,11 +182,11 @@
           <!-- Join an event -->
           <div
             class="
-              col
+              col-md-6
               d-flex
               align-items-center
               justify-content-center
-              py-72 py-lg-100
+              py-5 py-md-72 py-lg-100
               bg-join
               join-event
             "
@@ -199,7 +206,7 @@
 
     <!-- Virtual Event -->
     <div
-      class="container-fluid virtual-events"
+      class="container-fluid virtual-events section--virtual"
       style="padding: 122px 0 186.7px"
     >
       <h2 class="text-center col-lg-6 fw-bold mx-auto">
@@ -280,6 +287,91 @@ export default {
 
 
 <style lang="scss" scoped>
+// Sections
+
+.section {
+  h2 {
+    font-size: 24px !important;
+  }
+  &--hero {
+    padding: 60px 0 120px 0 !important;
+    @media (max-width: 700px) {
+      text-align: center;
+      padding: 80px 12px !important;
+    }
+    h1 {
+      @media (max-width: 700px) {
+        font-size: 34px !important;
+        text-align: center;
+        line-height: 1.2 !important;
+      }
+    }
+    p {
+      @media (max-width: 700px) {
+        font-family: "Segoe UI", sans-serif;
+        font-size: 20px;
+        text-align: center;
+      }
+    }
+  }
+
+  &--arena {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    @media (max-width: 765px) {
+      padding-top: 60px;
+      padding-bottom: 20px;
+
+      h2 {
+        font-size: 40px !important;
+      }
+      p {
+        font-size: 20px !important;
+      }
+    }
+    .arena {
+      padding-left: 142px;
+      @media (max-width: 765px) {
+        padding-left: 10px;
+      }
+    }
+  }
+
+  &--experience {
+    @media (max-width: 756px) {
+      h2 {
+        font-size: 40px !important;
+        line-height: 1.2 !important;
+        // color: #57586e !important;
+      }
+
+      p {
+        font-size: 20px !important;
+        letter-spacing: -0.02em !important;
+        color: #57586e !important;
+      }
+    }
+  }
+
+  &--virtual {
+    padding: 122px 0px 186.7px !important;
+
+    @media (max-width: 756px) {
+      padding: 60px 15px 70px !important;
+      h2 {
+        font-size: 40px !important;
+        line-height: 1.2 !important;
+        // color: #57586e !important;
+      }
+
+      p {
+        font-size: 20px !important;
+        letter-spacing: -0.02em !important;
+        color: #57586e !important;
+      }
+    }
+  }
+}
 h1 {
   font-family: "Mark Pro", sans-serif;
 }
@@ -435,5 +527,13 @@ a {
 .scroll-img img:hover {
   transform: scale(1.1);
   transition: transform 0.5s ease;
+}
+
+.scroll-img {
+  @media (max-width: 756px) {
+    img {
+      width: 130px;
+    }
+  }
 }
 </style>

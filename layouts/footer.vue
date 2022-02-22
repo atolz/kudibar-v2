@@ -127,13 +127,21 @@
     <div class="copy-right">
       <div class="container">
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-6 order-2 order-md-1 mt-4 mt-md-0">
             <small class=""
               >All rights reserved ©
               {{ new Date().getFullYear() }} Kudibar</small
             >
           </div>
-          <div class="col-md-6 d-flex justify-content-end">
+          <div
+            class="
+              col-md-6
+              d-flex
+              justify-content-md-end
+              order-1 order-md-2
+              align-items-center
+            "
+          >
             <div class="social-box">
               <img src="/footer/fb.svg" alt="" />
             </div>
@@ -167,6 +175,10 @@ export default {};
 .copy-right {
   padding: 48px 0 75px;
   border-top: 1px solid rgba(2, 62, 79, 0.192);
+
+  @media (max-width: 765px) {
+    padding: 31px 0 11px;
+  }
 
   small {
     color: #023e4f;

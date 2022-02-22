@@ -136,7 +136,7 @@
 import kudiLabel from "@/components/events/label.vue";
 // import Tickets from "@/components/events/Tickets.vue";
 export default {
-  layout: "dashboard",
+  // layout: "dashboard",
   components: {
     kudiLabel,
     // Tickets,
